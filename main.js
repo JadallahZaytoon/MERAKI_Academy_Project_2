@@ -1,7 +1,6 @@
 //starting the project
 const list_body_h2 = $("#list-viewer");
 list_body_h2.html(`<h2>My Lists</h2>,<ol id="list_items"></ol>`);
-const listItems = $(`#list_items`);
 
 const addBtn = $("#btn-add");
 addBtn.html(`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
@@ -11,9 +10,6 @@ addBtn.html(`<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill
 
 let listArray = [];
 let listItem = "";
-listItems.html(`<li id="li"></li>,<li id="li"></li>`);
-const li=$(`#li`)
-
 //when user input a list name it will be taken from the input-list to listArray and pushed into <li> inside <ol> in the list-Viewer.
 $("#btn-add").click(() => {
   listItem = $("#list-input").val();
@@ -21,24 +17,21 @@ $("#btn-add").click(() => {
 
   if (listItem !== "") {
     addToLists();
+    renderList();
     listItem = $("#list-input").val("");
-    li.html(itemToAdd);
-    
+    console.log(listArray);
   } else {
     prompt(`Please Enter List first`);
   }
 });
 
-
-
-
-
-let i = 0;
-let itemToAdd="";
 addToLists = function () {
+  listArray.push(listItem);
+};
+
+renderList = () => {
   for (i = 0; i < listArray.length; i++) {
-    listArray.push(listItem);
-    itemToAdd=listArray[i];
-    
+    const listItems = $(`#list_items`);
+    listItems.html(`<li>first list</li>`);
   }
 };
