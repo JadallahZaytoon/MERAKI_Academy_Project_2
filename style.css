@@ -24,6 +24,9 @@
 .header {
   width: 100%;
   height: 80px;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
   box-sizing: border-box;
   background-color: #b8734b;
   border: 2px solid #514bb8;
@@ -166,6 +169,39 @@ h2 {
 
 
 }
+
+.p2header{
+
+  width: 100%;
+  height: 80px;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: space-around;
+  box-sizing: border-box;
+  background-color: #b8734b;
+  border: 2px solid #514bb8;
+
+}
+
+.home-btn{
+
+  width: 200px;
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #78aeeb;
+  font-style: italic;
+  font-size: xx-large;
+  font-weight: bolder;
+  border: 2px solid #514bb8;
+
+
+}
+
 
 .todo{
 width:36% ;
