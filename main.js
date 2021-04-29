@@ -1,10 +1,10 @@
 //starting the project
 
-$(window).on("load", function () {
+// $(window).on("load", function () {
     
-        page2Hider();
+//         page2Hider();
     
-});
+// });
 const list_body_h2 = $(`#list-viewer`);
 list_body_h2.html(`<h2>My Lists</h2> <ol id="list_items"></ol>`);
 
