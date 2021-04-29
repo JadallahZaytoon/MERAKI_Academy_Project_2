@@ -72,10 +72,12 @@ renderList = () => {
      </li><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
     ol.append(li);
 
-    console.log($("#list-item-pushed").attr("id"));
-    console.log($("#deleted").attr("id"));
+    
 
-    // $('input[name=checkbox]').change(function(){
+    // console.log($("#list-item-pushed").attr("id"));
+    // console.log($("#deleted").attr("id"));
+    // how to read a checkBox value
+    // $('deleted${i}[name=checkbox]').change(function(){
     //     if($(this).is(':checked')) {
     //         // Checkbox is checked..
     //         console.log("checked");
@@ -86,14 +88,23 @@ renderList = () => {
     //         // Checkbox is not checked..
     //     };
     // });
-    // if($(`#deleted${i}`).is(`:checked`)){
+    // $(document)
+    // if($(`#deleted${i}`).prop(`:checked`)){
 
-    //     console.log("checked");
+    //   let checkedValue=  $(`#deleted${i}`).val();
+    //   console.log(checkedValue);
+    // };
+    
+    
 
-    // $(`list-item-pushed${i}`).css({
+    if($(`#deleted${i}`).is(`:checked`)){
 
-    //     color: "red",
-    // })
+        console.log("checked");
+
+    $(`list-item-pushed${i}`).css({
+
+        color: "red",
+    })
 
     $(`#list-item-pushed${i}`).on("click", function () {
       $(this).css({
@@ -113,7 +124,37 @@ renderList = () => {
       });
     });
   }
+
 };
+
+};
+// for loop 
+//
+
+const checkedBoxValue=()=>{
+
+    let checkedValue = $(`.checkBox`);
+    
+
+    for (let i = 0; i < checkedValue.length; i++) {
+        //this to get checkBox id.
+        // console.log(`${c} is checked = ${checkedValue[i].checked}`);
+
+        console.log(`${checkedValue[i].checked}`);
+        // if(`${checkedValue[i].checked}`===true){
+        //     let c=$(`#deleted${i}`).attr(`id`);
+        //     console.log(c);
+        // }
+        
+    }
+
+};
+
+deleteButton.on(`click`,function(){
+// console.log(`Helloooooo`);
+checkedBoxValue();
+});
+
 
 homePageHider = () => {
   $(`#Container`).hide();

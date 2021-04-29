@@ -143,7 +143,6 @@ h2 {
   box-sizing: border-box;
   flex-direction: column;
   align-items: center;
-  border: 2px solid black;
   background-color: #f0dac3;
 }
 
@@ -154,7 +153,6 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border: 2px solid red;
 }
 
 .p2header {
@@ -189,13 +187,12 @@ h2 {
   height: 100%;
   display: flex;
   flex-direction: column;
-  border: 2px solid black;
 }
 
 .toDoHeaderc {
   width: 100%;
   height: 10%;
-  border: 2px solid black;
+  border-bottom: 1px solid;
   align-content: center;
   text-align: center;
 }
@@ -203,7 +200,7 @@ h2 {
 .toDoBodyc {
   width: 100%;
   height: 85%;
-  border: 2px solid black;
+  
 }
 
 .toDoFotterc {
@@ -228,11 +225,35 @@ h2 {
 .middle {
   width: 28%;
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
   border: 2px solid black;
+}
+
+.btnSave{
+ width: 100%;
+ height: 30px;
+ align-self: flex-end;
+
 }
 
 .donec {
   width: 36%;
   height: 100%;
-  border: 2px solid black;
+  display: flex;
+  flex-direction: row;
+ 
 }
+
+.doneBodyc{
+
+}
+.btnDone{
+
+width: 100%;
+height: 30px;
+align-self: flex-end;
+
+}
+
