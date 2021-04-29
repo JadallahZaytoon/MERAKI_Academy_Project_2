@@ -75,12 +75,6 @@ renderList = () => {
 
     //filter if =i  , splice(0,i)
 
-  
-    
-    
-
-  
-
     $(`#list-item-pushed${i}`).on("click", function () {
       $(this).css({
         color: "red",
@@ -99,54 +93,41 @@ renderList = () => {
       });
     });
   }
-
 };
 
-
-// for loop 
+// for loop
 //this function to get the selected checkBox id.
-let selected_Item_toDelete='';
-let item_position=100;
-const checkedBoxValue=()=>{
+let selected_Item_toDelete = "";
+let item_position = 100;
+const checkedBoxValue = () => {
+  let checkedValue = $(`.checkBox`);
 
-    let checkedValue = $(`.checkBox`);
-    
+  for (let i = 0; i < checkedValue.length; i++) {
+    //this to get checkBox id.
+    // console.log(`${c} is checked = ${checkedValue[i].checked}`);
 
-    for (let i = 0; i < checkedValue.length; i++) {
-        //this to get checkBox id.
-        // console.log(`${c} is checked = ${checkedValue[i].checked}`);
+    // console.log(`${checkedValue[i].checked}`);
+    let x = `${checkedValue[i].checked}`;
 
-        // console.log(`${checkedValue[i].checked}`);
-        let x=`${checkedValue[i].checked}`;
-        
-        if(x===`true`){
-            selected_Item_toDelete=$(`#deleted${i}`).attr(`id`);
-            item_position =i;
-            console.log(item_position);
-        }
-        
+    if (x === `true`) {
+      selected_Item_toDelete = $(`#deleted${i}`).attr(`id`);
+      item_position = i;
+      deleteItemsFromList(listArray);
     }
-
+  }
 };
 
-const deleteItemsFromList=((listArray)=>{
+const deleteItemsFromList = (listArray) => {
+  // console.log(item_position);
+  listArray.splice(item_position, 1);
 
-for (let i = 0; i < listArray.length; i++) {
-    const element = array[i];
-    
-}
-
-});
-
-
-
+  renderList();
+};
 
 //this is when the user click on the delete button.
-deleteButton.on(`click`,function(){
-
-checkedBoxValue();
+deleteButton.on(`click`, function () {
+  checkedBoxValue();
 });
-
 
 homePageHider = () => {
   $(`#Container`).hide();
@@ -203,26 +184,6 @@ renderListToDo = () => {
        
        </li></div>`);
     ol.append(li);
-
-    // $('input[name=checkbox]').change(function(){
-    //     if($(this).is(':checked')) {
-    //         // Checkbox is checked..
-    //         console.log("checked");
-    //         console.log(`deleted${i} is checked`);
-    //     } else {
-    //         console.log("not checked");
-    //         console.log(`deleted${i} is unchecked`);
-    //         // Checkbox is not checked..
-    //     };
-    // });
-    // if($(`#deleted${i}`).is(`:checked`)){
-
-    //     console.log("checked");
-
-    // $(`list-item-pushed${i}`).css({
-
-    //     color: "red",
-    // })
 
     $(`#toDo-pushed${i}`).on("click", function () {
       $(this).css({
