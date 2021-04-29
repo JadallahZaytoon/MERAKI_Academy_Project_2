@@ -15,8 +15,6 @@
   background-color: #f0dac3;
 }
 
-
-
 ::placeholder {
   color: #1e0f06;
   text-align: center;
@@ -73,42 +71,35 @@
   border-radius: 50%;
 }
 
-
 li {
   font-size: 30px;
   width: fit-content;
   height: fit-content;
   justify-content: space-evenly;
   font-weight: bolder;
-  flex:auto;
+  flex: auto;
   font-size: larger;
   text-align: center;
   margin-right: 10px;
-  border-bottom: solid 2px #b8734b ;
-    
-
+  border-bottom: solid 2px #b8734b;
 }
 
-.list-item-class{
+.list-item-class {
   display: flex;
   width: fit-content;
   height: 50px;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
-.checkBox{
-flex: auto;
+.checkBox {
+  flex: auto;
   width: 20px;
   height: 20px;
   border-radius: 25px;
-    align-content: flex-end;
-    box-shadow: 0px 0px 10px 8px #b8734b;
-   
-
+  align-content: flex-end;
+  box-shadow: 0px 0px 10px 8px #b8734b;
 }
-
 
 .list-view {
   width: 100%;
@@ -143,7 +134,6 @@ h2 {
   background-color: #78aeeb;
 }
 
-
 /* Page 2 styling */
 
 .p2-Container {
@@ -157,9 +147,7 @@ h2 {
   background-color: #f0dac3;
 }
 
-.p2-body-list-view{
-
-
+.p2-body-list-view {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -167,12 +155,9 @@ h2 {
   flex-direction: row;
   justify-content: space-between;
   border: 2px solid red;
-
-
 }
 
-.p2header{
-
+.p2header {
   width: 100%;
   height: 80px;
   display: inline-flex;
@@ -181,11 +166,9 @@ h2 {
   box-sizing: border-box;
   background-color: #b8734b;
   border: 2px solid #514bb8;
-
 }
 
-.home-btn{
-
+.home-btn {
   width: 200px;
   height: 100%;
   box-sizing: border-box;
@@ -199,69 +182,57 @@ h2 {
   font-size: xx-large;
   font-weight: bolder;
   border: 2px solid #514bb8;
-
-
 }
 
-
-.todo{
-width:36% ;
-height:100% ;
-display: flex;
-flex-direction: column;
-border: 2px solid black;
-
+.todo {
+  width: 36%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
 }
 
-.toDoHeaderc{
+.toDoHeaderc {
   width: 100%;
   height: 10%;
   border: 2px solid black;
   align-content: center;
   text-align: center;
-
 }
 
-.toDoBodyc{
+.toDoBodyc {
   width: 100%;
   height: 85%;
   border: 2px solid black;
-
 }
 
-.toDoFotterc{
+.toDoFotterc {
   width: 100%;
   height: 5%;
   display: flex;
   flex-direction: row;
   border: 2px solid black;
-
 }
 
-.btnTodo{
-
+.btnTodo {
   width: 70px;
   height: 100%;
   background-color: #78aeeb;
-
 }
 
-.toDoInput{
-
+.toDoInput {
   width: 100%;
   height: 100%;
 }
 
-
-.middle{
-  width:28% ;
-  height:100% ;
+.middle {
+  width: 28%;
+  height: 100%;
   border: 2px solid black;
 }
 
-.donec{
-  width:36% ;
-  height:100% ;
+.donec {
+  width: 36%;
+  height: 100%;
   border: 2px solid black;
-
 }
