@@ -61,6 +61,7 @@ list_item.click(() => {
   });
 });
 
+//this function is to render the values(new lists added by user) from the input to the list to view.
 renderList = () => {
   let ol = $(`#list_items`);
   ol.html(``);
@@ -72,39 +73,13 @@ renderList = () => {
      </li><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
     ol.append(li);
 
-    
+    //filter if =i  , splice(0,i)
 
-    // console.log($("#list-item-pushed").attr("id"));
-    // console.log($("#deleted").attr("id"));
-    // how to read a checkBox value
-    // $('deleted${i}[name=checkbox]').change(function(){
-    //     if($(this).is(':checked')) {
-    //         // Checkbox is checked..
-    //         console.log("checked");
-    //         console.log(`deleted${i} is checked`);
-    //     } else {
-    //         console.log("not checked");
-    //         console.log(`deleted${i} is unchecked`);
-    //         // Checkbox is not checked..
-    //     };
-    // });
-    // $(document)
-    // if($(`#deleted${i}`).prop(`:checked`)){
-
-    //   let checkedValue=  $(`#deleted${i}`).val();
-    //   console.log(checkedValue);
-    // };
+  
     
     
 
-    if($(`#deleted${i}`).is(`:checked`)){
-
-        console.log("checked");
-
-    $(`list-item-pushed${i}`).css({
-
-        color: "red",
-    })
+  
 
     $(`#list-item-pushed${i}`).on("click", function () {
       $(this).css({
@@ -127,10 +102,11 @@ renderList = () => {
 
 };
 
-};
-// for loop 
-//
 
+// for loop 
+//this function to get the selected checkBox id.
+let selected_Item_toDelete='';
+let item_position=100;
 const checkedBoxValue=()=>{
 
     let checkedValue = $(`.checkBox`);
@@ -140,18 +116,34 @@ const checkedBoxValue=()=>{
         //this to get checkBox id.
         // console.log(`${c} is checked = ${checkedValue[i].checked}`);
 
-        console.log(`${checkedValue[i].checked}`);
-        // if(`${checkedValue[i].checked}`===true){
-        //     let c=$(`#deleted${i}`).attr(`id`);
-        //     console.log(c);
-        // }
+        // console.log(`${checkedValue[i].checked}`);
+        let x=`${checkedValue[i].checked}`;
+        
+        if(x===`true`){
+            selected_Item_toDelete=$(`#deleted${i}`).attr(`id`);
+            item_position =i;
+            console.log(item_position);
+        }
         
     }
 
 };
 
+const deleteItemsFromList=((listArray)=>{
+
+for (let i = 0; i < listArray.length; i++) {
+    const element = array[i];
+    
+}
+
+});
+
+
+
+
+//this is when the user click on the delete button.
 deleteButton.on(`click`,function(){
-// console.log(`Helloooooo`);
+
 checkedBoxValue();
 });
 
