@@ -19,6 +19,7 @@
 
 ::placeholder {
   color: #1e0f06;
+  text-align: center;
 }
 
 .header {
@@ -239,10 +240,16 @@ border: 2px solid black;
 
 .btnTodo{
 
-  width: 50px;
+  width: 70px;
   height: 100%;
   background-color: #78aeeb;
 
+}
+
+.toDoInput{
+
+  width: 100%;
+  height: 100%;
 }
 
 
