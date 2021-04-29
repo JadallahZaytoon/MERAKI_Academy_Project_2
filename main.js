@@ -1,4 +1,10 @@
 //starting the project
+
+$(window).on("load", function () {
+    
+        page2Hider();
+    
+});
 const list_body_h2 = $(`#list-viewer`);
 list_body_h2.html(`<h2>My Lists</h2> <ol id="list_items"></ol>`);
 
@@ -95,7 +101,7 @@ renderList = () => {
         "font-size": "20px",
       });
 
-    //   next();
+       homePageHider();
     });
 
     $(`#deleted${i}`).on("click", function () {
@@ -109,7 +115,7 @@ renderList = () => {
   }
 };
 
-next = () => {
+homePageHider = () => {
   $(`#Container`).hide();
   page2Shower();
 };
@@ -117,6 +123,19 @@ next = () => {
 page2Shower = () => {
   $(`#p2-Container`).show();
 };
+
+page2Hider=()=>{
+    $(`#p2-Container`).hide();
+    $(`#Container`).show();
+}
+
+
+
+$(`#home`).click(()=>{
+
+page2Hider();
+
+})
 
 
 // بس ياخد  قيمتها بدي اعمل فللتر عالاري ,local storage 
