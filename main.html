@@ -13,6 +13,8 @@
     ></script>
   </head>
   <body>
+    <!-- This section holds the main page that contains adding lists and delete'em -->
+
     <div id="Container" class="Container">
       <div id="home-header" class="header">
         <div id="home-logo" class="logo">To Do List</div>
@@ -28,7 +30,31 @@
       <button id="deletBtn" class="dletbtn"></button>
     </div>
 
-    <div id="p2-Container" class="p2-Container"></div>
+    <!-- Inside every list page : this section contains the page when user enter to his list 
+    where he can add,delete,and modify his inside toDo list. -->
+
+    <div id="p2-Container" class="p2-Container">
+
+      <!-- this div contains Logo and Home button -->
+      <div id="home-header" class="header">
+        <div id="home-logo" class="logo">To Do List</div>
+      </div>
+
+      <div id="P2-list-body" class="p2-body-list-view">
+
+        <div id="toDo" class="todo"></div>
+        <div id="middleSection" class="middle"></div>
+        <div id="done" class="donec"></div>
+
+
+
+      </div>
+
+
+
+
+
+    </div>
 
     <script src="main.js"></script>
   </body>

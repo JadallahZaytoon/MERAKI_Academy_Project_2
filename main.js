@@ -1,6 +1,6 @@
 //starting the project
 const list_body_h2 = $(`#list-viewer`);
-list_body_h2.html(`<h2>My Lists</h2>,<ol id="list_items"></ol>`);
+list_body_h2.html(`<h2>My Lists</h2> <ol id="list_items"></ol>`);
 
 const addBtn = $(`#btn-add`);
 addBtn.html(`<svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
@@ -51,24 +51,53 @@ renderList = () => {
   let li;
   for (i = 0; i < listArray.length; i++) {
     //I am willing to add delete button in here.
-    li = $(`<li id="list-item-pushed${i}">${listArray[i]}
-     <input type="checkbox" id="deleted${i}">
-     </li>`); // Iam adding an checkBox to delete lists .
+    li = $(`<div class="list-item-class"><li id="list-item-pushed${i}">${listArray[i]}
+     
+     </li><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
     ol.append(li);
+
+    console.log($('#list-item-pushed').attr('id'));
+    console.log($('#deleted').attr('id'));
+    
+    // $('input[name=checkbox]').change(function(){
+    //     if($(this).is(':checked')) {
+    //         // Checkbox is checked..
+    //         console.log("checked");
+    //         console.log(`deleted${i} is checked`);
+    //     } else {
+    //         console.log("not checked");
+    //         console.log(`deleted${i} is unchecked`);
+    //         // Checkbox is not checked..
+    //     };
+    // });
+    // if($(`#deleted${i}`).is(`:checked`)){
+
+    //     console.log("checked");
+
+    // $(`list-item-pushed${i}`).css({
+
+    //     color: "red",
+    // })
+
+    
+
 
     $(`#list-item-pushed${i}`).on("click", function () {
       $(this).css({
-        color: "blue",
-        "background-color": "yellow",
+        color: "red",
+        
         "font-size": "30px",
       });
+
+    //   next();
     });
 
-    $(`#deletBtn${i}`).on("click", function () {
+    $(`#deleted${i}`).on("click", function () {
       $(this).css({
         color: "blue",
         "background-color": "red",
         "font-size": "30px",
+       
       });
     });
   }
@@ -82,3 +111,6 @@ next = () => {
 page2Shower = () => {
   $(`#p2-Container`).show();
 };
+
+
+// بس ياخد  قيمتها بدي اعمل فللتر عالاري ,local storage 
