@@ -109,7 +109,7 @@ const checkedBoxValue = () => {
     // console.log(`${checkedValue[i].checked}`);
     let x = `${checkedValue[i].checked}`;
 
-    if (x === `true`) {
+    if (x  === `true`) {
       selected_Item_toDelete = $(`#deleted${i}`).attr(`id`);
       item_position = i;
       deleteItemsFromList(listArray);
@@ -149,10 +149,19 @@ $(`#home`).click(() => {
 
 // بس ياخد  قيمتها بدي اعمل فللتر عالاري ,local storage
 
+
+
+
+
 // inside the todo list
 
+// here I got the to do body that will put the lists item on it.
 const toDoBody = $(`#toDoBody`);
 toDoBody.html(`<ol id="ol-list"></ol>`);
+
+// here I got the done body that will move the lists item on it.
+const doneBody=$(`#doneBody`);
+doneBody.html(`<ol id="ol-list-done"></ol>`);
 
 let listToDoArray = [];
 let input2_value = ``;
@@ -174,6 +183,8 @@ addToListsToDo = function () {
   listToDoArray.push(input2_value);
 };
 
+let movedItemIndex=[0];
+let itemId=``;
 renderListToDo = () => {
   let ol = $(`#ol-list`);
   ol.html(``);
@@ -186,13 +197,24 @@ renderListToDo = () => {
     ol.append(li);
 
     $(`#toDo-pushed${i}`).on("click", function () {
-      $(this).css({
-        color: "red",
-
-        "font-size": "20px",
-      });
-
-      homePageHider();
+    //   itemId= $(`#toDo-pushed${i}`).attr(`id`);
+    
+    //  movetoDone(li);
+        console.log($(`#toDo-pushed${i}`).attr(`id`));
+    
     });
   }
 };
+
+
+movetoDone=()=>{
+
+   
+
+   console.log(itemId);
+
+
+}
+
+
+
