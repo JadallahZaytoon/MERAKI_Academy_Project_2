@@ -112,6 +112,7 @@ const checkedBoxValue = () => {
     if (x  === `true`) {
       selected_Item_toDelete = $(`#deleted${i}`).attr(`id`);
       item_position = i;
+      console.log(selected_Item_toDelete);
       deleteItemsFromList(listArray);
     }
   }
@@ -184,12 +185,13 @@ addToListsToDo = function () {
 };
 
 let movedItemIndex=[0];
-let itemId=``;
+let itemId;
+let itemToDo_Position=0;
 renderListToDo = () => {
   let ol = $(`#ol-list`);
   ol.html(``);
-  let li;
-  for (i = 0; i < listToDoArray.length; i++) {
+  
+  for (let i = 0; i < listToDoArray.length; i++) {
     //I am willing to add delete button in here.
     li = $(`<div class="list-item-class"><li id="toDo-pushed${i}">${listToDoArray[i]}
        
@@ -197,11 +199,11 @@ renderListToDo = () => {
     ol.append(li);
 
     $(`#toDo-pushed${i}`).on("click", function () {
-    //   itemId= $(`#toDo-pushed${i}`).attr(`id`);
-    
-    //  movetoDone(li);
-        console.log($(`#toDo-pushed${i}`).attr(`id`));
-    
+       itemId= $(`#toDo-pushed${i}`).attr(`id`);
+       itemToDo_Position=i;
+        // console.log($(`#toDo-pushed${i}`).attr(`id`));
+
+      movetoDone();
     });
   }
 };
@@ -209,9 +211,9 @@ renderListToDo = () => {
 
 movetoDone=()=>{
 
-   
-
-   console.log(itemId);
+  listToDoArray.splice(itemToDo_Position, 1);
+  renderListToDo();
+  //  console.log(itemId);
 
 
 }
