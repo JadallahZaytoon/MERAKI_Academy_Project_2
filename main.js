@@ -109,7 +109,7 @@ const checkedBoxValue = () => {
     // console.log(`${checkedValue[i].checked}`);
     let x = `${checkedValue[i].checked}`;
 
-    if (x  === `true`) {
+    if (x === `true`) {
       selected_Item_toDelete = $(`#deleted${i}`).attr(`id`);
       item_position = i;
       console.log(selected_Item_toDelete);
@@ -150,10 +150,6 @@ $(`#home`).click(() => {
 
 // بس ياخد  قيمتها بدي اعمل فللتر عالاري ,local storage
 
-
-
-
-
 // inside the todo list
 
 // here I got the to do body that will put the lists item on it.
@@ -161,11 +157,28 @@ const toDoBody = $(`#toDoBody`);
 toDoBody.html(`<ol id="ol-list"></ol>`);
 
 // here I got the done body that will move the lists item on it.
-const doneBody=$(`#doneBody`);
+const doneBody = $(`#doneBody`);
 doneBody.html(`<ol id="ol-list-done"></ol>`);
 
 let listToDoArray = [];
 let input2_value = ``;
+let listDoneArray=[];
+
+renderToDone=()=>{
+
+  let ol_Done = $(`#ol-list-done`);
+  ol_Done.html(``);
+
+  for (let i = 0; i < listToDoArray.length; i++) {
+    //I am willing to add delete button in here.
+    li_done = $(`<div class="list-item-class"><li id="done-pushed${i}">${listDoneArray[i]}
+       
+       </li></div>`);
+    ol_Done.append(li_done);
+};
+};
+
+
 
 $(`#btn-add-ToDo`).click(() => {
   input2_value = $(`#toDo-input`).val();
@@ -184,13 +197,19 @@ addToListsToDo = function () {
   listToDoArray.push(input2_value);
 };
 
-let movedItemIndex=[0];
+addtoDone=()=>{
+  listDoneArray.push(doneItem);
+  console.log(listDoneArray);
+
+}
+
+let movedItemIndex = [0];
 let itemId;
-let itemToDo_Position=0;
+let itemToDo_Position = 0;
 renderListToDo = () => {
   let ol = $(`#ol-list`);
   ol.html(``);
-  
+
   for (let i = 0; i < listToDoArray.length; i++) {
     //I am willing to add delete button in here.
     li = $(`<div class="list-item-class"><li id="toDo-pushed${i}">${listToDoArray[i]}
@@ -199,24 +218,21 @@ renderListToDo = () => {
     ol.append(li);
 
     $(`#toDo-pushed${i}`).on("click", function () {
-       itemId= $(`#toDo-pushed${i}`).attr(`id`);
-       itemToDo_Position=i;
-        // console.log($(`#toDo-pushed${i}`).attr(`id`));
-
+      itemId = $(`#toDo-pushed${i}`).attr(`id`);
+      itemToDo_Position = i;
+      // console.log($(`#toDo-pushed${i}`).attr(`id`));
+      // addtoDone();
+      renderToDone();
       movetoDone();
     });
   }
 };
 
-
-movetoDone=()=>{
-
-  listToDoArray.splice(itemToDo_Position, 1);
+let doneItem=``;
+movetoDone = () => {
+  doneItem=listToDoArray.splice(itemToDo_Position, 1);
+  addtoDone();
+  console.log(`this is doneItem ${doneItem}`);
   renderListToDo();
-  //  console.log(itemId);
-
-
-}
-
-
-
+  
+};
