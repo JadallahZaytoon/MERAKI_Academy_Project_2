@@ -12,7 +12,7 @@
   flex-direction: column;
   align-items: center;
   /* border: 2px solid black; */
-  background-color: #EDE9FF;
+  background-color: #ede9ff;
   background-image: url(wp7467150.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -22,7 +22,7 @@
   color: #1e0f06;
   text-align: center;
   font-family: cursive;
-  color: #B96BF2;
+  color: #b96bf2;
 }
 
 .header {
@@ -32,16 +32,15 @@
   flex-direction: row;
   justify-content: space-around;
   box-sizing: border-box;
-  
+
   border-bottom: 1px solid B96BF2;
 }
 
-button:hover{
-
+button:hover {
   cursor: pointer;
 }
 
-li:hover{
+li:hover {
   cursor: pointer;
 }
 
@@ -51,21 +50,22 @@ li:hover{
   box-sizing: border-box;
   font-size: 25px;
   display: flex;
-  color: #B96BF2;
+  color: #b96bf2;
   font-family: cursive;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #CCF0CD;
+  background-color: #ccf0cd;
   font-style: italic;
   font-size: xx-large;
   font-weight: bolder;
   border-radius: 27px;
+
   /* border: 2px solid #514bb8; */
 }
 
 .body-list-view {
-  color: #B96BF2;
+  color: #b96bf2;
   width: 30%;
   height: 100%;
   box-sizing: border-box;
@@ -84,16 +84,13 @@ li:hover{
   position: absolute;
   margin-top: 300px;
   margin-right: 20px;
-  border: 1px solid #E88B6F;
-  box-shadow: 0px 0px 10px 7px #EB3636;
+  border: 1px solid #e88b6f;
+  box-shadow: 0px 0px 10px 7px #eb3636;
   border-radius: 50%;
 }
 
-
-
-
 li {
-  color: #B96BF2;
+  color: #b96bf2;
   font-size: 30px;
   font-family: cursive;
   width: fit-content;
@@ -146,14 +143,14 @@ li {
 h2 {
   font-family: cursive;
   text-align: center;
-  margin-top:31px
+  margin-top: 31px;
 }
 
 #btn-add {
   width: 50px;
   height: 100%;
-  background-color: #CCF0CD;
-  border:1px solid #95E8C0;
+  background-color: #ccf0cd;
+  border: 1px solid #95e8c0;
   border-radius: 5px;
 }
 
@@ -161,8 +158,8 @@ h2 {
   width: 100%;
   height: 100%;
   text-align: center;
-  background-color: #CCF0CD;
-  border:1px solid #95E8C0;
+  background-color: #ccf0cd;
+  border: 1px solid #95e8c0;
   border-radius: 5px;
 }
 
@@ -181,7 +178,17 @@ h2 {
   background-size: cover;
 }
 
+h1 {
+  background-color: #ccf0cd;
+  vertical-align: middle;
+  margin: auto;
+  border-radius: 15px;
+  line-height: 51px;
+  width: 100px;
+}
 .p2-body-list-view {
+  color: #b96bf2;
+
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -197,8 +204,26 @@ h2 {
   flex-direction: row;
   justify-content: space-around;
   box-sizing: border-box;
-  
+
   border-bottom: 1px solid;
+}
+
+.logoP2 {
+  width: 200px;
+  height: 100%;
+  box-sizing: border-box;
+  font-size: 25px;
+  display: flex;
+  color: #b96bf2;
+  font-family: cursive;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ccf0cd;
+  font-style: italic;
+  font-size: xx-large;
+  font-weight: bolder;
+  border-radius: 27px;
 }
 
 .home-btn {
@@ -245,9 +270,9 @@ h2 {
   border: 2px solid black;
 }
 
-.hh1{
+.hh1 {
   box-sizing: border-box;
-  border-bottom: 1px solid ;
+  border-bottom: 1px solid;
   margin-bottom: 25px;
 }
 
@@ -282,24 +307,20 @@ h2 {
   height: 100%;
   display: flex;
   flex-direction: column;
-
 }
 
 .doneBodyc {
   width: 100%;
   height: 85%;
-
 }
 
-.doneFotterc{
-width: 100%;
-height: fit-content;
-flex: auto;
-align-self: flex-end;
-
+.doneFotterc {
+  width: 100%;
+  height: fit-content;
+  flex: auto;
+  align-self: flex-end;
 }
 .btnDone {
   width: 100%;
   height: 30px;
-  
 }

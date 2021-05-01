@@ -156,10 +156,9 @@ $(`#home`).click(() => {
 const toDoBody = $(`#toDoBody`);
 toDoBody.html(`<ol id="ol-list"></ol>`);
 
-
 let listToDoArray = [];
 let input2_value = ``;
-let listDoneArray=[];
+let listDoneArray = [];
 // this button is the one beside input
 $(`#btn-add-ToDo`).click(() => {
   input2_value = $(`#toDo-input`).val();
@@ -178,12 +177,6 @@ addToListsToDo = function () {
   listToDoArray.push(input2_value);
 };
 
-
-
-
-
-
-
 //here is to put the user input vlaue from listToDoArray to the ol inside ToDo body.
 let movedItemIndex = [0];
 let itemId;
@@ -191,9 +184,8 @@ let itemToDo_Position = 0;
 renderListToDo = () => {
   let ol = $(`#ol-list`);
   ol.html(``);
-  
+
   for (let i = 0; i < listToDoArray.length; i++) {
-    
     li = $(`<div class="list-item-class"><li id="toDo-pushed${i}">${listToDoArray[i]}
        
        </li></div>`);
@@ -207,39 +199,32 @@ renderListToDo = () => {
       console.log(`****************************`);
       movetoDone();
       renderToDone();
-      
     });
   }
 };
 
-addtoDone=()=>{
+addtoDone = () => {
   listDoneArray.push(doneItem);
-  console.log( ` list to done in addtoDone = ${listDoneArray}`);
+  console.log(` list to done in addtoDone = ${listDoneArray}`);
+};
 
-}
-
-let doneItem=``;
+let doneItem = ``;
 movetoDone = () => {
-  doneItem=listToDoArray.splice(itemToDo_Position, 1);
+  doneItem = listToDoArray.splice(itemToDo_Position, 1);
   addtoDone();
   console.log(`listToDoArray in movetoDone = ${listToDoArray}`);
   console.log(`listDoneArray in movetoDone = ${listDoneArray}`);
   console.log(`this is doneItem in movetoDone = ${doneItem}`);
   renderListToDo();
-  
 };
 
 // here I got the done body that will move the lists item on it.
 const doneBody = $(`#doneBody`);
 doneBody.html(`<ol id="ol-list-done"></ol>`);
 
-
-
-
-renderToDone=()=>{
-
+renderToDone = () => {
   let ol_Done = $(`#ol-list-done`);
-  
+
   console.log(`listDoneArray in renderToDone = ${listDoneArray}`);
   for (let i = 0; i < listDoneArray.length; i++) {
     //I am willing to add delete button in here.
@@ -247,5 +232,5 @@ renderToDone=()=>{
        
        </li></div>`);
     ol_Done.append(li_done);
-};
+  }
 };
