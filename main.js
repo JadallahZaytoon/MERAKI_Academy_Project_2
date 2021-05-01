@@ -4,7 +4,7 @@ $(window).on("load", function () {
   page2Hider();
 });
 const list_body_h2 = $(`#list-viewer`);
-list_body_h2.html(`<h2 class="hh1">My Lists</h2> <ol id="list_items"></ol>`);
+list_body_h2.html(` <ol id="list_items"></ol>`);
 
 const addBtn = $(`#btn-add`);
 addBtn.html(`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="40" fill="green" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
@@ -38,7 +38,8 @@ $(`#btn-add`).click(() => {
 
   if (input_value !== "") {
     addToLists();
-    renderList();
+     renderList();
+    // addToLocalStorage();
     input_value = $(`#list-input`).val(``);
     console.log(listArray);
   } else {
@@ -59,15 +60,18 @@ list_item.click(() => {
   });
 });
 
+
 //this function is to render the values(new lists added by user) from the input to the list to view.
 renderList = () => {
+
+
   let ol = $(`#list_items`);
   ol.html(``);
   let li;
   for (i = 0; i < listArray.length; i++) {
     //I am willing to add delete button in here.
     li = $(`<div class="list-item-class"><li id="list-item-pushed${i}">${listArray[i]}
-     
+    
      </li><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
     ol.append(li);
 
@@ -115,6 +119,12 @@ const checkedBoxValue = () => {
     }
   }
 };
+
+// addToLocalStorage=(listArray)=>{
+// localStorage.setItem(`listArray`,JSON.stringify());
+// renderList();
+// }
+
 
 const deleteItemsFromList = (listArray) => {
   // console.log(item_position);
@@ -223,6 +233,7 @@ doneBody.html(`<ol id="ol-list-done"></ol>`);
 
 renderToDone = () => {
   let ol_Done = $(`#ol-list-done`);
+  ol_Done.html(``);
 
   console.log(`listDoneArray in renderToDone = ${listDoneArray}`);
   for (let i = 0; i < listDoneArray.length; i++) {
