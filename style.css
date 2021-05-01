@@ -23,6 +23,7 @@
   text-align: center;
   font-family: cursive;
   color: #b96bf2;
+  font-weight: bold;
 }
 
 .header {
@@ -45,21 +46,19 @@ li:hover {
 }
 
 .logo {
-  width: 200px;
+ width: 250px;
   height: 100%;
   box-sizing: border-box;
   font-size: 25px;
-  display: flex;
   color: #b96bf2;
   font-family: cursive;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background-color: #ccf0cd;
-  font-style: italic;
   font-size: xx-large;
   font-weight: bolder;
   border-radius: 27px;
+  text-align: center;
+  padding-top: 7px;
+  vertical-align: middle;
 
   /* border: 2px solid #514bb8; */
 }
@@ -173,13 +172,13 @@ h2 {
   flex-direction: column;
   align-items: center;
   background-color: #f0dac3;
-  background-image: url(wp7467150.jpg);
+  background-image: url(notepad-pen-write-plan.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 h1 {
-  background-color: #ccf0cd;
+  background-color: #E4DACE;
   vertical-align: middle;
   margin: auto;
   border-radius: 15px;
@@ -209,37 +208,34 @@ h1 {
 }
 
 .logoP2 {
-  width: 200px;
+  width: 250px;
   height: 100%;
   box-sizing: border-box;
   font-size: 25px;
-  display: flex;
   color: #b96bf2;
   font-family: cursive;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background-color: #ccf0cd;
-  font-style: italic;
+  background-color: #E4DACE;
   font-size: xx-large;
   font-weight: bolder;
   border-radius: 27px;
+  text-align: center;
+  text-align: center;
+  padding-top: 7px;
+  
 }
 
 .home-btn {
-  width: 200px;
-  height: 100%;
+  width: 50px;
+  height: 60%;
   box-sizing: border-box;
   font-size: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #78aeeb;
-  font-style: italic;
-  font-size: xx-large;
-  font-weight: bolder;
-  border: 2px solid #514bb8;
+  background-color: #E4DACE;
+  margin: 15px;
+  
 }
 
 .todo {
@@ -252,7 +248,7 @@ h1 {
 .toDoHeaderc {
   width: 100%;
   height: 10%;
-  border-bottom: 1px solid;
+  border: 1px dashed;
   align-content: center;
   text-align: center;
 }
@@ -267,7 +263,7 @@ h1 {
   height: 5%;
   display: flex;
   flex-direction: row;
-  border: 2px solid black;
+  
 }
 
 .hh1 {
@@ -279,12 +275,15 @@ h1 {
 .btnTodo {
   width: 70px;
   height: 100%;
-  background-color: #78aeeb;
+  background-color: #E4DACE;
+  border: none;
 }
 
 .toDoInput {
   width: 100%;
   height: 100%;
+  background-color: #E4DACE;
+  border: none;
 }
 
 .middle {
@@ -293,13 +292,17 @@ h1 {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
-  border: 2px solid black;
+ 
 }
 
 .btnSave {
   width: 100%;
-  height: 30px;
+  height: 27.5px;
   align-self: flex-end;
+  background-color: #E4DACE;
+  border: none;
+  color: #b96bf2;
+  font-weight: bold;
 }
 
 .donec {
@@ -322,5 +325,9 @@ h1 {
 }
 .btnDone {
   width: 100%;
-  height: 30px;
+  height: 27.5px;
+  background-color: #E4DACE;
+  border: none;
+  color: #b96bf2;
+  font-weight: bold;
 }
