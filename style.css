@@ -341,6 +341,6 @@ h1 {
 .Date{
 width: 144px ;
 margin-top: 6px;
-
+height: min-content;
 
 }

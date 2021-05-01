@@ -71,8 +71,8 @@ renderList = () => {
   for (i = 0; i < listArray.length; i++) {
     //I am willing to add delete button in here.
     li = $(`<div class="list-item-class"><li id="list-item-pushed${i}">${listArray[i]}
-    
-     </li><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
+   
+     </li><input type="date" id="date${i}" class="Date"><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
     ol.append(li);
 
     //filter if =i  , splice(0,i)
