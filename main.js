@@ -1,6 +1,7 @@
 // starting the project
 
 $(window).on("load", function () {
+  localStorage.getItem(`lists`)
   page2Hider();
 });
 const list_body_h2 = $(`#list-viewer`);
@@ -76,6 +77,8 @@ renderList = () => {
     ol.append(li);
 
     //filter if =i  , splice(0,i)
+
+    localStorage.setItem(`lists`,`listArray`);
 
     $(`#list-item-pushed${i}`).on("click", function () {
       $(this).css({
