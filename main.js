@@ -79,8 +79,6 @@ renderList = () => {
      </li><input type="date" id="date${i}" class="Date"><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
     ol.append(li);
 
-    //filter if =i  , splice(0,i)
-
     localStorage.setItem(`lists`, `listArray`);
 
     $(`#list-item-pushed${i}`).on("click", function () {
@@ -89,7 +87,6 @@ renderList = () => {
   }
 };
 
-// for loop
 //this function to get the selected checkBox id.
 let selected_Item_toDelete = "";
 let item_position = 100;
@@ -97,10 +94,6 @@ const checkedBoxValue = () => {
   let checkedValue = $(`.checkBox`);
 
   for (let i = 0; i < checkedValue.length; i++) {
-    //this to get checkBox id.
-    // console.log(`${c} is checked = ${checkedValue[i].checked}`);
-
-    // console.log(`${checkedValue[i].checked}`);
     let x = `${checkedValue[i].checked}`;
 
     if (x === `true`) {
@@ -111,11 +104,6 @@ const checkedBoxValue = () => {
     }
   }
 };
-
-// addToLocalStorage=(listArray)=>{
-// localStorage.setItem(`listArray`,JSON.stringify());
-// renderList();
-// }
 
 const deleteItemsFromList = (listArray) => {
   // console.log(item_position);
@@ -146,8 +134,6 @@ page2Hider = () => {
 $(`#home`).click(() => {
   page2Hider();
 });
-
-// بس ياخد  قيمتها بدي اعمل فللتر عالاري ,local storage
 
 // inside the todo list
 
@@ -193,8 +179,6 @@ renderListToDo = () => {
     $(`#toDo-pushed${i}`).on("click", function () {
       itemId = $(`#toDo-pushed${i}`).attr(`id`);
       itemToDo_Position = i;
-      // console.log($(`#toDo-pushed${i}`).attr(`id`));
-      // addtoDone();
       console.log(`****************************`);
       deleteFromToDo();
     });
@@ -227,7 +211,6 @@ renderToDone = () => {
 
   console.log(`listDoneArray in renderToDone = ${listDoneArray}`);
   for (let i = 0; i < listDoneArray.length; i++) {
-    //I am willing to add delete button in here.
     li_done = $(`<div class="list-item-class"><li id="done-pushed${i}">${listDoneArray[i]}
        
        </li></div>`);
@@ -236,9 +219,6 @@ renderToDone = () => {
     $(`#done-pushed${i}`).on("click", function () {
       itemIdtoDelete = $(`#done-pushed${i}`).attr(`id`);
       itemDone_Position = i;
-      // console.log($(`#toDo-pushed${i}`).attr(`id`));
-      // addtoDone();
-      console.log(`****************************`);
       deleteFromDone();
     });
   }
