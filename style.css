@@ -22,7 +22,7 @@
   color: #1e0f06;
   text-align: center;
   font-family: cursive;
-  color: #4F392B;
+  color: #4f392b;
   font-weight: bold;
 }
 
@@ -34,7 +34,7 @@
   justify-content: space-around;
   box-sizing: border-box;
   margin-bottom: 40px;
-  border-bottom: 1px solid #4F392B;
+  border-bottom: 1px solid #4f392b;
 }
 
 button:hover {
@@ -50,7 +50,7 @@ li:hover {
   height: 100%;
   box-sizing: border-box;
   font-size: 25px;
-  color: #4F392B;
+  color: #4f392b;
   font-family: cursive;
   font-size: xx-large;
   font-weight: bolder;
@@ -63,7 +63,7 @@ li:hover {
 }
 
 .body-list-view {
-  color: #4F392B;
+  color: #4f392b;
   width: 30%;
   height: 100%;
   box-sizing: border-box;
@@ -88,7 +88,7 @@ li:hover {
 }
 
 li {
-  color: #4F392B;
+  color: #4f392b;
   font-size: 30px;
   font-family: cursive;
   width: fit-content;
@@ -148,7 +148,7 @@ h2 {
 #btn-add {
   width: 50px;
   height: 100%;
-  background-color: #D4CEC1;
+  background-color: #d4cec1;
   border: 1px solid #95e8c0;
   border-radius: 5px;
 }
@@ -157,7 +157,7 @@ h2 {
   width: 144px;
   height: 100%;
   text-align: center;
-  background-color: #D4CEC1;
+  background-color: #d4cec1;
   border: 1px solid #95e8c0;
   border-radius: 5px;
 }
@@ -186,7 +186,7 @@ h1 {
   width: 100px;
 }
 .p2-body-list-view {
-  color: #4F392B;
+  color: #4f392b;
 
   width: 100%;
   height: 100%;
@@ -211,7 +211,7 @@ h1 {
   height: 100%;
   box-sizing: border-box;
   font-size: 25px;
-  color: #4F392B;
+  color: #4f392b;
   font-family: cursive;
   background-color: #e4dace;
   font-size: xx-large;
@@ -233,7 +233,7 @@ h1 {
   justify-content: center;
   background-color: #e4dace;
   margin: 15px;
-  border-radius: 13px
+  border-radius: 13px;
 }
 
 .todo {
@@ -303,7 +303,7 @@ h1 {
   align-self: flex-end;
   background-color: #e4dace;
 
-  color: #4F392B;
+  color: #4f392b;
   font-weight: bold;
   border: 1px inset;
   border-radius: 5%;
@@ -335,16 +335,16 @@ h1 {
   height: 27.5px;
   background-color: #e4dace;
   border: 1px inset;
-  color: #4F392B;
+  color: #4f392b;
   font-weight: bold;
   border-radius: 5%;
 }
 
-.Date{
-width: 144px ;
-margin-top: 6px;
-height: min-content;
-background: none;
-text-align: end;
-border: 1px inset;
+.Date {
+  width: 144px;
+  margin-top: 6px;
+  height: min-content;
+  background: none;
+  text-align: end;
+  border: 1px inset;
 }

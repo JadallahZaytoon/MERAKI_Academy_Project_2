@@ -1,7 +1,7 @@
 // starting the project
 
 $(window).on("load", function () {
-  localStorage.getItem(`lists`)
+  localStorage.getItem(`lists`);
   page2Hider();
 });
 const list_body_h2 = $(`#list-viewer`);
@@ -30,14 +30,11 @@ homeBtn.html(`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="40" fil
 <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
 </svg>`);
 
-const deletePtow=$(`#btn-delete-ToDo`);
+const deletePtow = $(`#btn-delete-ToDo`);
 
-deletePtow.click(()=>{
-
-
+deletePtow.click(() => {
   deleteFromDone();
-
-})
+});
 
 let listArray = [];
 let input_value = ``;
@@ -48,7 +45,7 @@ $(`#btn-add`).click(() => {
 
   if (input_value !== "") {
     addToLists();
-     renderList();
+    renderList();
     // addToLocalStorage();
     input_value = $(`#list-input`).val(``);
     console.log(listArray);
@@ -70,11 +67,8 @@ list_item.click(() => {
   });
 });
 
-
 //this function is to render the values(new lists added by user) from the input to the list to view.
 renderList = () => {
-
-
   let ol = $(`#list_items`);
   ol.html(``);
   let li;
@@ -87,14 +81,11 @@ renderList = () => {
 
     //filter if =i  , splice(0,i)
 
-    localStorage.setItem(`lists`,`listArray`);
+    localStorage.setItem(`lists`, `listArray`);
 
     $(`#list-item-pushed${i}`).on("click", function () {
-      
       homePageHider();
     });
-
-   
   }
 };
 
@@ -125,7 +116,6 @@ const checkedBoxValue = () => {
 // localStorage.setItem(`listArray`,JSON.stringify());
 // renderList();
 // }
-
 
 const deleteItemsFromList = (listArray) => {
   // console.log(item_position);
@@ -207,7 +197,6 @@ renderListToDo = () => {
       // addtoDone();
       console.log(`****************************`);
       deleteFromToDo();
-      
     });
   }
 };
@@ -231,7 +220,7 @@ deleteFromToDo = () => {
 // here I got the done body that will move the lists item on it.
 const doneBody = $(`#doneBody`);
 doneBody.html(`<ol id="ol-list-done"></ol>`);
-let itemDone_Position=0
+let itemDone_Position = 0;
 renderToDone = () => {
   let ol_Done = $(`#ol-list-done`);
   ol_Done.html(``);
@@ -251,15 +240,10 @@ renderToDone = () => {
       // addtoDone();
       console.log(`****************************`);
       deleteFromDone();
-      
     });
   }
 };
 
-
-deleteFromDone=(()=>{
-
+deleteFromDone = () => {
   listDoneArray.splice(itemToDo_Position, 1);
-
-
-})
+};
