@@ -30,6 +30,15 @@ homeBtn.html(`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="40" fil
 <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
 </svg>`);
 
+const deletePtow=$(`#btn-delete-ToDo`);
+
+deletePtow.click(()=>{
+
+
+  deleteFromDone();
+
+})
+
 let listArray = [];
 let input_value = ``;
 // const input_values = $(`#list_items`);
@@ -81,22 +90,11 @@ renderList = () => {
     localStorage.setItem(`lists`,`listArray`);
 
     $(`#list-item-pushed${i}`).on("click", function () {
-      $(this).css({
-        color: "red",
-
-        "font-size": "20px",
-      });
-
+      
       homePageHider();
     });
 
-    $(`#deleted${i}`).on("click", function () {
-      $(this).css({
-        color: "blue",
-        "background-color": "red",
-        "font-size": "30px",
-      });
-    });
+   
   }
 };
 
@@ -233,7 +231,7 @@ deleteFromToDo = () => {
 // here I got the done body that will move the lists item on it.
 const doneBody = $(`#doneBody`);
 doneBody.html(`<ol id="ol-list-done"></ol>`);
-
+let itemDone_Position=0
 renderToDone = () => {
   let ol_Done = $(`#ol-list-done`);
   ol_Done.html(``);
@@ -245,5 +243,23 @@ renderToDone = () => {
        
        </li></div>`);
     ol_Done.append(li_done);
+
+    $(`#done-pushed${i}`).on("click", function () {
+      itemIdtoDelete = $(`#done-pushed${i}`).attr(`id`);
+      itemDone_Position = i;
+      // console.log($(`#toDo-pushed${i}`).attr(`id`));
+      // addtoDone();
+      console.log(`****************************`);
+      deleteFromDone();
+      
+    });
   }
 };
+
+
+deleteFromDone=(()=>{
+
+  listDoneArray.splice(itemToDo_Position, 1);
+
+
+})
