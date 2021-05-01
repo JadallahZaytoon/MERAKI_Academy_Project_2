@@ -195,8 +195,8 @@ renderListToDo = () => {
       // console.log($(`#toDo-pushed${i}`).attr(`id`));
       // addtoDone();
       console.log(`****************************`);
-      movetoDone();
-      renderToDone();
+      deleteFromToDo();
+      
     });
   }
 };
@@ -207,13 +207,14 @@ addtoDone = () => {
 };
 
 let doneItem = ``;
-movetoDone = () => {
+deleteFromToDo = () => {
   doneItem = listToDoArray.splice(itemToDo_Position, 1);
   addtoDone();
   console.log(`listToDoArray in movetoDone = ${listToDoArray}`);
   console.log(`listDoneArray in movetoDone = ${listDoneArray}`);
   console.log(`this is doneItem in movetoDone = ${doneItem}`);
   renderListToDo();
+  renderToDone();
 };
 
 // here I got the done body that will move the lists item on it.
