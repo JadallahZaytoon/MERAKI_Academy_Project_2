@@ -6,16 +6,16 @@
 
 // });
 const list_body_h2 = $(`#list-viewer`);
-list_body_h2.html(`<h2>My Lists</h2> <ol id="list_items"></ol>`);
+list_body_h2.html(`<h2 class="hh1">My Lists</h2> <ol id="list_items"></ol>`);
 
 const addBtn = $(`#btn-add`);
-addBtn.html(`<svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+addBtn.html(`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="40" fill="green" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
 <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
 <path d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z"/>
 </svg>`);
 
 const deleteButton = $(`#deletBtn`);
-deleteButton.html(`<svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+deleteButton.html(`<svg xmlns="http://www.w3.org/2000/svg" width="40" height="30" fill="#EB3636" class="bi bi-trash-fill" viewBox="0 0 16 16">
 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
 </svg></button>`);
 
@@ -156,30 +156,11 @@ $(`#home`).click(() => {
 const toDoBody = $(`#toDoBody`);
 toDoBody.html(`<ol id="ol-list"></ol>`);
 
-// here I got the done body that will move the lists item on it.
-const doneBody = $(`#doneBody`);
-doneBody.html(`<ol id="ol-list-done"></ol>`);
 
 let listToDoArray = [];
 let input2_value = ``;
 let listDoneArray=[];
-
-renderToDone=()=>{
-
-  let ol_Done = $(`#ol-list-done`);
-  ol_Done.html(``);
-
-  for (let i = 0; i < listToDoArray.length; i++) {
-    //I am willing to add delete button in here.
-    li_done = $(`<div class="list-item-class"><li id="done-pushed${i}">${listDoneArray[i]}
-       
-       </li></div>`);
-    ol_Done.append(li_done);
-};
-};
-
-
-
+// this button is the one beside input
 $(`#btn-add-ToDo`).click(() => {
   input2_value = $(`#toDo-input`).val();
 
@@ -187,7 +168,7 @@ $(`#btn-add-ToDo`).click(() => {
     addToListsToDo();
     renderListToDo();
     input2_value = $(`#toDo-input`).val(``);
-    console.log(listToDoArray);
+    console.log(`listTodoArray in button click= ${listToDoArray}`);
   } else {
     alert(`Please Enter List first`);
   }
@@ -197,21 +178,22 @@ addToListsToDo = function () {
   listToDoArray.push(input2_value);
 };
 
-addtoDone=()=>{
-  listDoneArray.push(doneItem);
-  console.log(listDoneArray);
 
-}
 
+
+
+
+
+//here is to put the user input vlaue from listToDoArray to the ol inside ToDo body.
 let movedItemIndex = [0];
 let itemId;
 let itemToDo_Position = 0;
 renderListToDo = () => {
   let ol = $(`#ol-list`);
   ol.html(``);
-
+  
   for (let i = 0; i < listToDoArray.length; i++) {
-    //I am willing to add delete button in here.
+    
     li = $(`<div class="list-item-class"><li id="toDo-pushed${i}">${listToDoArray[i]}
        
        </li></div>`);
@@ -222,17 +204,48 @@ renderListToDo = () => {
       itemToDo_Position = i;
       // console.log($(`#toDo-pushed${i}`).attr(`id`));
       // addtoDone();
-      renderToDone();
+      console.log(`****************************`);
       movetoDone();
+      renderToDone();
+      
     });
   }
 };
+
+addtoDone=()=>{
+  listDoneArray.push(doneItem);
+  console.log( ` list to done in addtoDone = ${listDoneArray}`);
+
+}
 
 let doneItem=``;
 movetoDone = () => {
   doneItem=listToDoArray.splice(itemToDo_Position, 1);
   addtoDone();
-  console.log(`this is doneItem ${doneItem}`);
+  console.log(`listToDoArray in movetoDone = ${listToDoArray}`);
+  console.log(`listDoneArray in movetoDone = ${listDoneArray}`);
+  console.log(`this is doneItem in movetoDone = ${doneItem}`);
   renderListToDo();
   
+};
+
+// here I got the done body that will move the lists item on it.
+const doneBody = $(`#doneBody`);
+doneBody.html(`<ol id="ol-list-done"></ol>`);
+
+
+
+
+renderToDone=()=>{
+
+  let ol_Done = $(`#ol-list-done`);
+  
+  console.log(`listDoneArray in renderToDone = ${listDoneArray}`);
+  for (let i = 0; i < listDoneArray.length; i++) {
+    //I am willing to add delete button in here.
+    li_done = $(`<div class="list-item-class"><li id="done-pushed${i}">${listDoneArray[i]}
+       
+       </li></div>`);
+    ol_Done.append(li_done);
+};
 };
