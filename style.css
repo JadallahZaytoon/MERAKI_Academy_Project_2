@@ -46,7 +46,7 @@ li:hover {
 }
 
 .logo {
- width: 250px;
+  width: 250px;
   height: 100%;
   box-sizing: border-box;
   font-size: 25px;
@@ -89,7 +89,7 @@ li:hover {
 }
 
 li {
-  color: #b96bf2;
+  color: #580196;
   font-size: 30px;
   font-family: cursive;
   width: fit-content;
@@ -178,7 +178,7 @@ h2 {
 }
 
 h1 {
-  background-color: #E4DACE;
+  background-color: #e4dace;
   vertical-align: middle;
   margin: auto;
   border-radius: 15px;
@@ -214,14 +214,13 @@ h1 {
   font-size: 25px;
   color: #b96bf2;
   font-family: cursive;
-  background-color: #E4DACE;
+  background-color: #e4dace;
   font-size: xx-large;
   font-weight: bolder;
   border-radius: 27px;
   text-align: center;
   text-align: center;
   padding-top: 7px;
-  
 }
 
 .home-btn {
@@ -233,9 +232,8 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #E4DACE;
+  background-color: #e4dace;
   margin: 15px;
-  
 }
 
 .todo {
@@ -248,14 +246,16 @@ h1 {
 .toDoHeaderc {
   width: 100%;
   height: 10%;
-  border: 1px dashed;
+  margin-top: 20px;
   align-content: center;
   text-align: center;
+  margin-bottom: 33px;
 }
 
 .toDoBodyc {
   width: 100%;
   height: 85%;
+  padding-left: 33px;
 }
 
 .toDoFotterc {
@@ -263,7 +263,6 @@ h1 {
   height: 5%;
   display: flex;
   flex-direction: row;
-  
 }
 
 .hh1 {
@@ -275,15 +274,19 @@ h1 {
 .btnTodo {
   width: 70px;
   height: 100%;
-  background-color: #E4DACE;
-  border: none;
+  background-color: #e4dace;
+
+  border: 1px inset;
+  border-radius: 5%;
 }
 
 .toDoInput {
   width: 100%;
   height: 100%;
-  background-color: #E4DACE;
-  border: none;
+  background-color: #e4dace;
+  border: 1px inset;
+  border-radius: 5%;
+  text-align: center;
 }
 
 .middle {
@@ -292,17 +295,18 @@ h1 {
   display: flex;
   flex-direction: row;
   box-sizing: border-box;
- 
 }
 
 .btnSave {
   width: 100%;
   height: 27.5px;
   align-self: flex-end;
-  background-color: #E4DACE;
-  border: none;
+  background-color: #e4dace;
+
   color: #b96bf2;
   font-weight: bold;
+  border: 1px inset;
+  border-radius: 5%;
 }
 
 .donec {
@@ -315,6 +319,7 @@ h1 {
 .doneBodyc {
   width: 100%;
   height: 85%;
+  font-weight: bolder;
 }
 
 .doneFotterc {
@@ -326,8 +331,9 @@ h1 {
 .btnDone {
   width: 100%;
   height: 27.5px;
-  background-color: #E4DACE;
-  border: none;
+  background-color: #e4dace;
+  border: 1px inset;
   color: #b96bf2;
   font-weight: bold;
+  border-radius: 5%;
 }
