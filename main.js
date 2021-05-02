@@ -1,9 +1,11 @@
 // starting the project
 
-// $(window).on("load", function () {
-//   localStorage.getItem(`lists`);
-//   page2Hider();
-// });
+$(window).on("load", function () {
+  localStorage.getItem(`lists`);
+  page2Hider();
+  
+  
+});
 const list_body_h2 = $(`#list-viewer`);
 list_body_h2.html(` <ol id="list_items"></ol>`);
 
@@ -254,5 +256,16 @@ nextBtn.click(()=>{
   
   });
 
-  
+  previousBtn.click(()=>{
+
+    const previouseBullet = bullets[currenStep -2];
+    previouseBullet.classList.remove(`completed`);
+    currenStep--;
+    nextBtn.attr(`disabled`,false);
+    finishBtn.attr(`disabled`,true);
+    if(currenStep===1){
+      previousBtn.attr(`disabled`,true);
+    }
+
+  })
 
