@@ -1,7 +1,7 @@
 // starting the project
 
 $(window).on("load", function () {
-  localStorage.getItem(`lists`);
+  // localStorage.getItem(`lists`);
   page2Hider();
   
   
@@ -38,19 +38,21 @@ deletePtow.click(() => {
   deleteFromDone();
 });
 
-let listArray = [];
+let listArray = JSON.parse(localStorage.getItem("listArray")) || [];
 let input_value = ``;
+renderList()
 // const input_values = $(`#list_items`);
 
-$(`#btn-add`).click(() => {
+$(`#finishBtn`).click(() => {
   input_value = $(`#list-input`).val();
 
   if (input_value !== "") {
+   
     addToLists();
     renderList();
     // addToLocalStorage();
     input_value = $(`#list-input`).val(``);
-    console.log(listArray);
+    // console.log(listArray);
   } else {
     alert(`Please Enter List first`);
   }
@@ -58,6 +60,7 @@ $(`#btn-add`).click(() => {
 
 addToLists = function () {
   listArray.push(input_value);
+  localStorage.setItem("listArray", JSON.stringify(listArray))
 };
 
 let list_item = $(`#list-item-pushed`);
@@ -70,10 +73,11 @@ list_item.click(() => {
 });
 
 //this function is to render the values(new lists added by user) from the input to the list to view.
-renderList = () => {
+function renderList (){
   let ol = $(`#list_items`);
   ol.html(``);
   let li;
+  console.log(listArray);
   for (i = 0; i < listArray.length; i++) {
     //I am willing to add delete button in here.
     li = $(`<div class="list-item-class"><li id="list-item-pushed${i}">${listArray[i]}
@@ -81,7 +85,9 @@ renderList = () => {
      </li><input type="date" id="date${i}" class="Date"><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
     ol.append(li);
 
-    localStorage.setItem(`lists`, `listArray`);
+    // localStorage.setItem(`lists`, `listArray`);
+    // localStorage.setItem("listArray", JSON.stringify(listArray))
+
 
     $(`#list-item-pushed${i}`).on("click", function () {
       homePageHider();
@@ -101,7 +107,7 @@ const checkedBoxValue = () => {
     if (x === `true`) {
       selected_Item_toDelete = $(`#deleted${i}`).attr(`id`);
       item_position = i;
-      console.log(selected_Item_toDelete);
+      // console.log(selected_Item_toDelete);
       deleteItemsFromList(listArray);
     }
   }
@@ -110,6 +116,9 @@ const checkedBoxValue = () => {
 const deleteItemsFromList = (listArray) => {
   // console.log(item_position);
   listArray.splice(item_position, 1);
+
+  localStorage.setItem("listArray", JSON.stringify(listArray))
+
 
   renderList();
 };
@@ -128,7 +137,7 @@ page2Shower = () => {
   $(`#p2-Container`).show();
 };
 
-page2Hider = () => {
+function page2Hider  () {
   $(`#p2-Container`).hide();
   $(`#Container`).show();
 };
@@ -151,10 +160,11 @@ $(`#btn-add-ToDo`).click(() => {
   input2_value = $(`#toDo-input`).val();
 
   if (input2_value !== "") {
+    
     addToListsToDo();
     renderListToDo();
     input2_value = $(`#toDo-input`).val(``);
-    console.log(`listTodoArray in button click= ${listToDoArray}`);
+    // console.log(`listTodoArray in button click= ${listToDoArray}`);
   } else {
     alert(`Please Enter List first`);
   }
@@ -181,7 +191,7 @@ renderListToDo = () => {
     $(`#toDo-pushed${i}`).on("click", function () {
       itemId = $(`#toDo-pushed${i}`).attr(`id`);
       itemToDo_Position = i;
-      console.log(`****************************`);
+      // console.log(`****************************`);
       deleteFromToDo();
     });
   }
@@ -196,9 +206,9 @@ let doneItem = ``;
 deleteFromToDo = () => {
   doneItem = listToDoArray.splice(itemToDo_Position, 1);
   addtoDone();
-  console.log(`listToDoArray in movetoDone = ${listToDoArray}`);
-  console.log(`listDoneArray in movetoDone = ${listDoneArray}`);
-  console.log(`this is doneItem in movetoDone = ${doneItem}`);
+  // console.log(`listToDoArray in movetoDone = ${listToDoArray}`);
+  // console.log(`listDoneArray in movetoDone = ${listDoneArray}`);
+  // console.log(`this is doneItem in movetoDone = ${doneItem}`);
   renderListToDo();
   renderToDone();
 };
@@ -231,6 +241,7 @@ deleteFromDone = () => {
 };
 
 
+// this section is for the step progress bar.
 const previousBtn =$(`#previousBtn`);
 const nextBtn =$(`#nextBtn`);
 const finishBtn =$(`#finishBtn`);
@@ -239,22 +250,77 @@ const bullets =[...$(`.bullet`)];
 const MAX_STEPS=3;
 let currenStep=1;
 
+// here to enable next button only if input has value.
+
+
+
+
+  
+
+
+
+// if($(`:text`).val().length==0){
+
+  
+
+// }
+// else{
+//   nextBtn.attr(`disabled`,false);
+// }
+// if(input_value===``){
+//   nextBtn.attr(`disabled`,false);
+  
+// }else{
+
+//   nextBtn.attr(`disabled`,false);
+// }
+
+// nextBtn.attr(`disabled`,true);
+// function checkIfEmpty(){
+  // if(!input_value.length){
+      
+  //   nextBtn.attr(`disabled`,false);
+  // //  alert(`Please Enter List first`);
+
+  // }
+  // else{
+    
+  // }
+// }
+
+if($(`#list-input`).val()) nextBtn.attr(`disabled`,true)
+$(`#list-input`  ).on('change', ()=>{
+  console.log($(`#list-input`  ).val());
+  nextBtn.attr(`disabled`,false);
+
+})
+
 nextBtn.click(()=>{
+
+  // checkIfEmpty();
+
+//  x=(()=>{
+
 
   const currentBullet=bullets[currenStep - 1];
   currentBullet.classList.add(`completed`);
   
   currenStep++;
   previousBtn.attr(`disabled`,false);
+  
+
   if(currenStep===MAX_STEPS){
     
     
     finishBtn.attr(`disabled`,false);
     nextBtn.attr(`disabled`,true);
   }
+
   
+  // });
+ }) ;
+
   
-  });
 
   previousBtn.click(()=>{
 

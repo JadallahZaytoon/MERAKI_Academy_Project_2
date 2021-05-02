@@ -153,10 +153,12 @@ h2 {
 
 #list-input {
   width: 144px;
-  height: 100%;
+  height: 46%;
   text-align: center;
+  color: #137c49;
   background-color: #d4cec1;
-  border: 1px solid #95e8c0;
+  border: 1px inset #95e8c0;
+    box-shadow: 0px 0px 21px 7px #95e8c0;
   border-radius: 5px;
 }
 
@@ -358,7 +360,9 @@ h1 {
   background-image: url(wp7467150.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -367,10 +371,11 @@ h1 {
   display: none;
 }
 
-.h1{
+.h1Progressbar{
   background-color: ivory;
   font-size: small;
   border: none;
+  text-align: center;
 
 }
 
@@ -398,13 +403,32 @@ button:disabled:hover{
 }
 
 .containerStep{
-
-  display: block;
-  max-width: 400px ;
-  margin: 0px auto 0 auto;
-  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px ;
   background-color: wheat;
+  justify-content: space-between;
+  gap: 15px;
+  border: 1px inset #95e8c0;
+    box-shadow: 0px 0px 21px 7px #95e8c0
   
+}
+
+.inptToList{
+width: 150px;
+height: 80px;
+flex: auto;
+align-self: center;
+margin-top: 32px;
+
+}
+
+.buttonsOfBar{
+
+  display: flex;
+  justify-content: space-around;
+ align-content: center;
+
 }
 
 #stepProgreesBar{
@@ -413,7 +437,7 @@ button:disabled:hover{
   width: 300px;
   margin: 0px auto;
   margin-bottom: 40px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-end;
 }
 
@@ -440,6 +464,17 @@ button:disabled:hover{
   line-height:20px ;
 }
 
+.bulletReady{
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  border: 1px solid green;
+  color: teal;
+  display: inline-block;
+  position: relative;
+  transition: background-color 800ms;
+  line-height:20px ;
+}
 
 .bullet.completed{
 
