@@ -1,9 +1,9 @@
 // starting the project
 
-$(window).on("load", function () {
-  localStorage.getItem(`lists`);
-  page2Hider();
-});
+// $(window).on("load", function () {
+//   localStorage.getItem(`lists`);
+//   page2Hider();
+// });
 const list_body_h2 = $(`#list-viewer`);
 list_body_h2.html(` <ol id="list_items"></ol>`);
 

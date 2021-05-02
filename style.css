@@ -37,9 +37,7 @@
   border-bottom: 1px solid #4f392b;
 }
 
-button:hover {
-  cursor: pointer;
-}
+
 
 li:hover {
   cursor: pointer;
@@ -347,4 +345,45 @@ h1 {
   background: none;
   text-align: end;
   border: 1px inset;
+}
+
+
+.hidden{
+
+  display: none;
+}
+
+.h1{
+  background-color: ivory;
+  font-size: medium;
+}
+
+button{
+
+  padding: 5px 10px;
+  border: 1px solid black;
+  transition: 250ms background-color;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: black;
+  color: #e4dace;
+}
+
+button:disabled:hover{
+
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.containerStep{
+
+  max-width: 400px ;
+  margin: 20px auto 0 auto;
+  padding: 40px;
 }
