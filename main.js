@@ -227,3 +227,32 @@ renderToDone = () => {
 deleteFromDone = () => {
   listDoneArray.splice(itemToDo_Position, 1);
 };
+
+
+const previousBtn =$(`#previousBtn`);
+const nextBtn =$(`#nextBtn`);
+const finishBtn =$(`#finishBtn`);
+const content =$(`#content`);
+const bullets =[...$(`.bullet`)];
+const MAX_STEPS=3;
+let currenStep=1;
+
+nextBtn.click(()=>{
+
+  const currentBullet=bullets[currenStep - 1];
+  currentBullet.classList.add(`completed`);
+  
+  currenStep++;
+  previousBtn.attr(`disabled`,false);
+  if(currenStep===MAX_STEPS){
+    
+    
+    finishBtn.attr(`disabled`,false);
+    nextBtn.attr(`disabled`,true);
+  }
+  
+  
+  });
+
+  
+
