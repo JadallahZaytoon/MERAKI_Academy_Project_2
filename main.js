@@ -58,19 +58,19 @@ deletePtow.click(() => {
 // local storage to get array of lists.
 let listArray = JSON.parse(localStorage.getItem("listArray")) || [];
 let input_value = ``;
+date_value=``;
 renderList();
 // const input_values = $(`#list_items`);
 
 $(`#finishBtn`).click(() => {
-  currenStep=1;
+  
   input_value = $(`#list-input`).val();
-
+  date_value=$(`#dateInput`).val();
+  console.log(date_value);
   if (input_value !== "") {
     addToLists();
     renderList();
-    // addToLocalStorage();
     input_value = $(`#list-input`).val(``);
-    // console.log(listArray);
     $(`#Container`).show();
     $(`#mainContainerDiv`).hide();
   } else {
@@ -79,7 +79,8 @@ $(`#finishBtn`).click(() => {
 });
 
 addToLists = function () {
-  listArray.push(input_value);
+  arraObject={list:input_value,date:date_value}
+  listArray.push(arraObject);
   localStorage.setItem("listArray", JSON.stringify(listArray));
 };
 
@@ -100,9 +101,8 @@ function renderList() {
   console.log(listArray);
   for (i = 0; i < listArray.length; i++) {
     //I am willing to add delete button in here.
-    li = $(`<div class="list-item-class"><li id="list-item-pushed${i}">${listArray[i]}
-   
-     </li><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
+    li = $(`<div class="list-item-class"><li id="list-item-pushed${i}">${listArray[i].list}   ${listArray[i].date} 
+   </li><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
     ol.append(li);
     $(`#list-item-pushed${i}`).on("click", function () {
       homePageHider();
@@ -123,14 +123,14 @@ const checkedBoxValue = () => {
     if (x === `true`) {
       selected_Item_toDelete = $(`#deleted${i}`).attr(`id`);
       item_position = i;
-      // console.log(selected_Item_toDelete);
+      
       deleteItemsFromList(listArray);
     }
   }
 };
 
 const deleteItemsFromList = (listArray) => {
-  // console.log(item_position);
+  
   listArray.splice(item_position, 1);
 
   localStorage.setItem("listArray", JSON.stringify(listArray));
