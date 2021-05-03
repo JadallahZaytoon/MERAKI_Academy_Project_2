@@ -1,10 +1,8 @@
 // starting the project
 
 $(window).on("load", function () {
-  // localStorage.getItem(`lists`);
   page2Hider();
-  
-  
+  $(`#mainContainerDiv`).hide();
 });
 const list_body_h2 = $(`#list-viewer`);
 list_body_h2.html(` <ol id="list_items"></ol>`);
@@ -37,22 +35,23 @@ const deletePtow = $(`#btn-delete-ToDo`);
 deletePtow.click(() => {
   deleteFromDone();
 });
-
+// local storage to get array of lists.
 let listArray = JSON.parse(localStorage.getItem("listArray")) || [];
 let input_value = ``;
-renderList()
+renderList();
 // const input_values = $(`#list_items`);
 
 $(`#finishBtn`).click(() => {
   input_value = $(`#list-input`).val();
 
   if (input_value !== "") {
-   
     addToLists();
     renderList();
     // addToLocalStorage();
     input_value = $(`#list-input`).val(``);
     // console.log(listArray);
+    $(`#Container`).show();
+    $(`#mainContainerDiv`).hide();
   } else {
     alert(`Please Enter List first`);
   }
@@ -60,7 +59,7 @@ $(`#finishBtn`).click(() => {
 
 addToLists = function () {
   listArray.push(input_value);
-  localStorage.setItem("listArray", JSON.stringify(listArray))
+  localStorage.setItem("listArray", JSON.stringify(listArray));
 };
 
 let list_item = $(`#list-item-pushed`);
@@ -73,7 +72,7 @@ list_item.click(() => {
 });
 
 //this function is to render the values(new lists added by user) from the input to the list to view.
-function renderList (){
+function renderList() {
   let ol = $(`#list_items`);
   ol.html(``);
   let li;
@@ -88,12 +87,12 @@ function renderList (){
     // localStorage.setItem(`lists`, `listArray`);
     // localStorage.setItem("listArray", JSON.stringify(listArray))
 
-
     $(`#list-item-pushed${i}`).on("click", function () {
       homePageHider();
+      $(`#mainContainerDiv`).hide();
     });
   }
-};
+}
 
 //this function to get the selected checkBox id.
 let selected_Item_toDelete = "";
@@ -117,8 +116,7 @@ const deleteItemsFromList = (listArray) => {
   // console.log(item_position);
   listArray.splice(item_position, 1);
 
-  localStorage.setItem("listArray", JSON.stringify(listArray))
-
+  localStorage.setItem("listArray", JSON.stringify(listArray));
 
   renderList();
 };
@@ -127,6 +125,15 @@ const deleteItemsFromList = (listArray) => {
 deleteButton.on(`click`, function () {
   checkedBoxValue();
 });
+
+addBtn.click(() => {
+  toListAdder();
+});
+
+toListAdder = () => {
+  $(`#Container`).hide();
+  $(`#mainContainerDiv`).show();
+};
 
 homePageHider = () => {
   $(`#Container`).hide();
@@ -137,10 +144,10 @@ page2Shower = () => {
   $(`#p2-Container`).show();
 };
 
-function page2Hider  () {
+function page2Hider() {
   $(`#p2-Container`).hide();
   $(`#Container`).show();
-};
+}
 
 $(`#home`).click(() => {
   page2Hider();
@@ -160,7 +167,6 @@ $(`#btn-add-ToDo`).click(() => {
   input2_value = $(`#toDo-input`).val();
 
   if (input2_value !== "") {
-    
     addToListsToDo();
     renderListToDo();
     input2_value = $(`#toDo-input`).val(``);
@@ -206,9 +212,7 @@ let doneItem = ``;
 deleteFromToDo = () => {
   doneItem = listToDoArray.splice(itemToDo_Position, 1);
   addtoDone();
-  // console.log(`listToDoArray in movetoDone = ${listToDoArray}`);
-  // console.log(`listDoneArray in movetoDone = ${listDoneArray}`);
-  // console.log(`this is doneItem in movetoDone = ${doneItem}`);
+
   renderListToDo();
   renderToDone();
 };
@@ -240,98 +244,43 @@ deleteFromDone = () => {
   listDoneArray.splice(itemToDo_Position, 1);
 };
 
-
 // this section is for the step progress bar.
-const previousBtn =$(`#previousBtn`);
-const nextBtn =$(`#nextBtn`);
-const finishBtn =$(`#finishBtn`);
-const content =$(`#content`);
-const bullets =[...$(`.bullet`)];
-const MAX_STEPS=3;
-let currenStep=1;
+const previousBtn = $(`#previousBtn`);
+const nextBtn = $(`#nextBtn`);
+const finishBtn = $(`#finishBtn`);
+const content = $(`#content`);
+const bullets = [...$(`.bullet`)];
+const MAX_STEPS = 3;
+let currenStep = 1;
 
 // here to enable next button only if input has value.
 
+if ($(`#list-input`).val()) nextBtn.attr(`disabled`, true);
+$(`#list-input`).on("change", () => {
+  console.log($(`#list-input`).val());
+  nextBtn.attr(`disabled`, false);
+});
 
-
-
-  
-
-
-
-// if($(`:text`).val().length==0){
-
-  
-
-// }
-// else{
-//   nextBtn.attr(`disabled`,false);
-// }
-// if(input_value===``){
-//   nextBtn.attr(`disabled`,false);
-  
-// }else{
-
-//   nextBtn.attr(`disabled`,false);
-// }
-
-// nextBtn.attr(`disabled`,true);
-// function checkIfEmpty(){
-  // if(!input_value.length){
-      
-  //   nextBtn.attr(`disabled`,false);
-  // //  alert(`Please Enter List first`);
-
-  // }
-  // else{
-    
-  // }
-// }
-
-if($(`#list-input`).val()) nextBtn.attr(`disabled`,true)
-$(`#list-input`  ).on('change', ()=>{
-  console.log($(`#list-input`  ).val());
-  nextBtn.attr(`disabled`,false);
-
-})
-
-nextBtn.click(()=>{
-
-  // checkIfEmpty();
-
-//  x=(()=>{
-
-
-  const currentBullet=bullets[currenStep - 1];
+nextBtn.click(() => {
+  const currentBullet = bullets[currenStep - 1];
   currentBullet.classList.add(`completed`);
-  
+
   currenStep++;
-  previousBtn.attr(`disabled`,false);
-  
+  previousBtn.attr(`disabled`, false);
 
-  if(currenStep===MAX_STEPS){
-    
-    
-    finishBtn.attr(`disabled`,false);
-    nextBtn.attr(`disabled`,true);
+  if (currenStep === MAX_STEPS) {
+    finishBtn.attr(`disabled`, false);
+    nextBtn.attr(`disabled`, true);
   }
+});
 
-  
-  // });
- }) ;
-
-  
-
-  previousBtn.click(()=>{
-
-    const previouseBullet = bullets[currenStep -2];
-    previouseBullet.classList.remove(`completed`);
-    currenStep--;
-    nextBtn.attr(`disabled`,false);
-    finishBtn.attr(`disabled`,true);
-    if(currenStep===1){
-      previousBtn.attr(`disabled`,true);
-    }
-
-  })
-
+previousBtn.click(() => {
+  const previouseBullet = bullets[currenStep - 2];
+  previouseBullet.classList.remove(`completed`);
+  currenStep--;
+  nextBtn.attr(`disabled`, false);
+  finishBtn.attr(`disabled`, true);
+  if (currenStep === 1) {
+    previousBtn.attr(`disabled`, true);
+  }
+});
