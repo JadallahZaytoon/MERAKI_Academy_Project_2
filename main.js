@@ -42,8 +42,11 @@ renderList();
 // const input_values = $(`#list_items`);
 
 $(`#finishBtn`).click(() => {
+  currenStep=1;
   input_value = $(`#list-input`).val();
-
+  datefunction(()=>{
+    $(`#dateInpput${iValue}`).show();
+  })
   if (input_value !== "") {
     addToLists();
     renderList();
@@ -70,7 +73,7 @@ list_item.click(() => {
     "font-size": "30px",
   });
 });
-
+const iValue=0;
 //this function is to render the values(new lists added by user) from the input to the list to view.
 function renderList() {
   let ol = $(`#list_items`);
@@ -81,12 +84,12 @@ function renderList() {
     //I am willing to add delete button in here.
     li = $(`<div class="list-item-class"><li id="list-item-pushed${i}">${listArray[i]}
    
-     </li><input type="date" id="date${i}" class="Date"><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
+     </li><input type="date" id="dateInpput${i}" class="Date"><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
     ol.append(li);
 
     // localStorage.setItem(`lists`, `listArray`);
     // localStorage.setItem("listArray", JSON.stringify(listArray))
-
+    iValue=i;
     $(`#list-item-pushed${i}`).on("click", function () {
       homePageHider();
       $(`#mainContainerDiv`).hide();
@@ -261,6 +264,8 @@ $(`#list-input`).on("change", () => {
   nextBtn.attr(`disabled`, false);
 });
 
+$(`#dateInpput`).hide();
+
 nextBtn.click(() => {
   const currentBullet = bullets[currenStep - 1];
   currentBullet.classList.add(`completed`);
@@ -272,10 +277,13 @@ nextBtn.click(() => {
     finishBtn.attr(`disabled`, false);
     nextBtn.attr(`disabled`, true);
   }
+  $(`#list-input`).hide();
+  
+  datefunction();
 });
 
 previousBtn.click(() => {
-  const previouseBullet = bullets[currenStep - 2];
+  const previouseBullet = bullets[currenStep - 1];
   previouseBullet.classList.remove(`completed`);
   currenStep--;
   nextBtn.attr(`disabled`, false);
@@ -283,4 +291,6 @@ previousBtn.click(() => {
   if (currenStep === 1) {
     previousBtn.attr(`disabled`, true);
   }
+  $(`#list-input`).show();
+  $(`#dateInpput`).hide();
 });

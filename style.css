@@ -104,6 +104,7 @@ li {
   height: 50px;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .checkBox {
@@ -342,7 +343,7 @@ h1 {
   width: 144px;
   margin-top: 6px;
   height: min-content;
-  background: none;
+  
   text-align: end;
   border: 1px inset;
 }
