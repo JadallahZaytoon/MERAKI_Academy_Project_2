@@ -53,8 +53,6 @@ li:hover {
   text-align: center;
   padding-top: 7px;
   vertical-align: middle;
-
-  
 }
 
 .body-list-view {
@@ -82,14 +80,12 @@ li:hover {
   border-radius: 50%;
 }
 
-.dletbtn:hover{
-
+.dletbtn:hover {
   background-color: rgb(255, 35, 35);
 }
 
-.bi-trash-fill:hover{
- fill:white;
-  
+.bi-trash-fill:hover {
+  fill: white;
 }
 
 li {
@@ -106,7 +102,7 @@ li {
   list-style-position: inside;
 }
 
-.listvew{
+.listvew {
   width: 300px;
 }
 .list-item-class {
@@ -133,7 +129,6 @@ li {
   width: 300px;
   height: 100%;
   box-sizing: border-box;
- 
 }
 
 .list-fotter {
@@ -163,17 +158,14 @@ h2 {
   align-content: center;
 }
 
-#btn-add:hover{
-
+#btn-add:hover {
   background-color: lightgreen;
   fill: white;
-
 }
 
-.bi:hover{
+.bi:hover {
   fill: white;
 }
-
 
 /* Page 2 styling */
 
@@ -249,9 +241,8 @@ h1 {
   border-radius: 13px;
 }
 
-.home-btn2{
-width: 100%;
-
+.home-btn2 {
+  width: 100%;
 }
 
 .todo {
@@ -309,7 +300,6 @@ width: 100%;
   border: 1px inset;
   border-radius: 5%;
   text-align: center;
- 
 }
 
 .middle {
@@ -367,12 +357,10 @@ width: 100%;
   width: 144px;
   margin-top: 6px;
   height: min-content;
-  
+
   text-align: end;
   border: 1px inset;
 }
-
-
 
 .mainContainer {
   width: 100%;
@@ -386,7 +374,6 @@ width: 100%;
   justify-content: center;
   align-items: center;
 }
-
 
 .h1Progressbar {
   background-color: ivory;
@@ -430,12 +417,11 @@ button:disabled:hover {
   box-shadow: 0px 0px 21px 7px #95e8c0;
   border-radius: 7%;
 }
-.Date{
+.Date {
   width: 200px;
- 
 }
 
-.dateDiv{
+.dateDiv {
   width: fit-content;
   height: fit-content;
   margin-top: 50px;
@@ -465,4 +451,3 @@ button:disabled:hover {
   align-content: center;
   color: lawngreen;
 }
-
