@@ -1,13 +1,16 @@
 // starting the project
 
+
+
+// Hiding all pages exept of home page
 $(window).on("load", function () {
   buttons();
   page2Hider();
   $(`#mainContainerDiv`).hide();
 });
-const list_body_h2 = $(`#list-viewer`);
-list_body_h2.html(` <ol id="list_items"></ol>`);
-
+const listViewerPage1 = $(`#list-viewer`);
+listViewerPage1.html(` <ol id="listItems"></ol>`);
+// ****************************************************************
 
 
 
@@ -49,72 +52,62 @@ home1Btn.html(`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="40" fi
 </svg>`);
 
 })
+// *****************************************************************
 
+
+
+// The button that deletes lists from page 2
 const deletePtow = $(`#btn-delete-ToDo`);
 
 deletePtow.click(() => {
   deleteFromDone();
 });
-// local storage to get array of lists.
-let listArray = JSON.parse(localStorage.getItem("listArray")) || [];
-let input_value = ``;
-date_value=``;
-renderList();
-// const input_values = $(`#list_items`);
-
-$(`#finishBtn`).click(() => {
+//*******************************************************************
+// The button that get the user to menu to add a list info.
+addBtn.click(() => {
   
-  input_value = $(`#list-input`).val();
-  date_value=$(`#dateInput`).val();
-  console.log(date_value);
-  if (input_value !== "") {
+  $(`#Container`).hide();
+  $(`#mainContainerDiv`).show();
+});
+//******************************************************************** 
+
+// Home button to gide user to home page.
+homeBtn.click(() => {
+  page2Hider();
+});
+// *****************************************************************
+
+// local storage to get array of lists.(page 1)
+let listArray = JSON.parse(localStorage.getItem("listArray")) || [];
+
+// decleration of the inputs from user.
+let inputValue = ``;
+dateValue=``;
+// *****************************************************************
+
+
+// an event added when user clicks on save after filling list name and list date.
+const saveBtn = $(`#saveBtn`);
+$(`#saveBtn`).click(() => {
+  
+  inputValue = $(`#list-input`).val();
+  dateValue=$(`#dateInput`).val();
+  
+  if (inputValue !== "") {
     addToLists();
     renderList();
-    input_value = $(`#list-input`).val(``);
+    inputValue = $(`#list-input`).val(``);
     $(`#Container`).show();
     $(`#mainContainerDiv`).hide();
   } else {
-    alert(`Please Enter List first`);
+    alert(`Please Enter List first`);//this to alert user that he must enter a value (list name)
   }
 });
+// ******************************************************************
 
-addToLists = function () {
-  arraObject={list:input_value,date:date_value}
-  listArray.push(arraObject);
-  localStorage.setItem("listArray", JSON.stringify(listArray));
-};
-
-let list_item = $(`#list-item-pushed`);
-list_item.click(() => {
-  $(this).css({
-    color: "red",
-    "background-color": "yellow",
-    "font-size": "30px",
-  });
-});
-
-//this function is to render the values(new lists added by user) from the input to the list to view.
-function renderList() {
-  let ol = $(`#list_items`);
-  ol.html(``);
-  let li;
-  console.log(listArray);
-  for (i = 0; i < listArray.length; i++) {
-    //I am willing to add delete button in here.
-    li = $(`<div class="list-item-class"><li id="#list-item-pushed${i}">${listArray[i].list} 
-   </li> <input class="checkBox" type="checkbox" name=checkbox id="${listArray[i].list}">${listArray[i].date}</div>`); 
-   // Iam adding an checkBox to delete lists .
-    ol.append(li);
-    $(`#list-item-pushed${i}`).on("click", function () {
-      homePageHider();
-      $(`#mainContainerDiv`).hide();
-    });
-  }
-}
-
-//this function to get the selected checkBox id.
-let selected_Item_toDelete = "";
-let item_position = 0;
+//this function to get the selected checkBox id, and filters the listArray by the name of checked box list item. 
+let selectedItemToDelete = "";
+let itemPossition = 0;
 const checkedBoxValue = () => {
   let checkedValue = $(`.checkBox`);
 
@@ -124,47 +117,77 @@ const checkedBoxValue = () => {
     if (x === `true`) {
       
       
-      selected_Item_toDelete = checkedValue[i].id
-      console.log(selected_Item_toDelete);
+      selectedItemToDelete = checkedValue[i].id
+     
       listArray=listArray.filter(element=>{
 
-       return element.list!==selected_Item_toDelete;
+       return element.list!==selectedItemToDelete;
       })
       
-      // item_position = i;
-      
-      // deleteItemsFromList(listArray);
+    
     }
   }
   localStorage.setItem("listArray", JSON.stringify(listArray));
   renderList();
 };
+//*********************************************************************
 
-// const deleteItemsFromList = (listArray) => {
+
+// here is a function when user click on the lists inside home page.
+// it takes as inside the choosen list.
+let listItem = $(`#list-item-pushed`);
+listItem.click(() => {
+  $(this).css({
+    color: "red",
+    "background-color": "yellow",
+    "font-size": "30px",
+  });
+});
+// ******************************************************************
+
+
+// Renderlist: function to get user input values from inputs in the form
+// and put it inside listArray that holds the lists that user inputs.
+function renderList() {
+  let ol = $(`#listItems`);
+  ol.html(``);
+  let li;
   
-//   listArray.splice(item_position, 1);
+  for (i = 0; i < listArray.length; i++) {
+    //I am willing to add delete button in here.
+    li = $(`<div class="list-item-class"><li id="list-item-pushed${i}">${listArray[i].list} 
+   </li> <input class="checkBox" type="checkbox" name=checkbox id="${listArray[i].list}">${listArray[i].date}</div>`); 
+   // Iam adding an checkBox to delete lists .
+    ol.append(li);
+    
+    $(`#list-item-pushed${i}`).on("click", function () {
+      homePageHider();
+      $(`#mainContainerDiv`).hide();
+      page2Shower();
+    });
+    
+  }
+}
+// *****************************************************************
 
-//   localStorage.setItem("listArray", JSON.stringify(listArray));
-
-//   renderList();
-// };
+// addToLists: a function to add user input values in array of objects,
+// and push it inside listArray that will appears in home page,
+// and will upgreade local storage with the new values.
+addToLists = function () {
+  arrayObject={list:inputValue,date:dateValue}
+  listArray.push(arrayObject);
+  localStorage.setItem("listArray", JSON.stringify(listArray));
+};
+renderList();
+//**************************************************************************** 
 
 //this is when the user click on the delete button.
 deleteButton.on(`click`, function () {
   checkedBoxValue();
 });
 
-addBtn.click(() => {
-  
-  toListAdder();
-});
 
-toListAdder = () => {
-  $(`#Container`).hide();
-  $(`#mainContainerDiv`).show();
-  
-};
-
+// those functions for hide and show pages on demand.
 homePageHider = () => {
   $(`#Container`).hide();
   page2Shower();
@@ -178,43 +201,50 @@ function page2Hider() {
   $(`#p2-Container`).hide();
   $(`#Container`).show();
 }
+//************************************************************************** */
 
-$(`#home`).click(() => {
-  page2Hider();
-});
+//##########################################################################
+// Below section for the Todo page (inside lists after user clicks on).
 
-// inside the todo list
-
-// here I got the to do body that will put the lists item on it.
+// getting body of page2 using jquery.
 const toDoBody = $(`#toDoBody`);
 toDoBody.html(`<ol id="ol-list"></ol>`);
-
+// local storage to get array of lists.(page2)
 let listToDoArray = JSON.parse(localStorage.getItem("listDoneArray")) || [];
-let input2_value = ``;
+// decleration of the inputs from user.(page 2)
+let inputValueToDo = ``;
 let listDoneArray = [];
-// this button is the one beside input
+//***************************************************************************** */
+
+
+// Button that set users input inside the ToDo list
 $(`#btn-add-ToDo`).click(() => {
-  input2_value = $(`#toDo-input`).val();
+  inputValueToDo = $(`#toDo-input`).val();
   
-  if (input2_value !== "") {
+  if (inputValueToDo !== "") {
     addToListsToDo();
     renderListToDo();
-    input2_value = $(`#toDo-input`).val(``);
-    // console.log(`listTodoArray in button click= ${listToDoArray}`);
+    inputValueToDo = $(`#toDo-input`).val(``);
   } else {
     alert(`Please Enter List first`);
   }
 });
+// ********************************************************************************
 
+
+// push users input value inside listToDoArray that will appears in ToDo section,
+// and will upgreade local storage with the new values.
 addToListsToDo = function () {
-  listToDoArray.push(input2_value);
+  listToDoArray.push(inputValueToDo);
   localStorage.setItem("listDoneArray", JSON.stringify(listDoneArray));
 };
+// *****************************************************************************
 
-//here is to put the user input vlaue from listToDoArray to the ol inside ToDo body.
+// RenderlistToDo: function to get user input values from input inside lists,
+// and put it inside listToDoArray that holds the lists that user inputs.
 let movedItemIndex = [0];
 let itemId;
-let itemToDo_Position = 0;
+let itemToDoPossition = 0;
 renderListToDo = () => {
   let ol = $(`#ol-list`);
   ol.html(``);
@@ -227,64 +257,72 @@ renderListToDo = () => {
 
     $(`#toDo-pushed${i}`).on("click", function () {
       itemId = $(`#toDo-pushed${i}`).attr(`id`);
-      itemToDo_Position = i;
+      itemToDoPossition = i;
       deleteFromToDo();
     });
   }
 };
+// ****************************************************************************
 
-addtoDone = () => {
-  listDoneArray.push(doneItem);
-  console.log(` list to done in addtoDone = ${listDoneArray}`);
-};
 
+// deleteFromToDo: a function to delete items from ToDO list inside page2. 
 let doneItem = ``;
 deleteFromToDo = () => {
-  doneItem = listToDoArray.splice(itemToDo_Position, 1);
+  doneItem = listToDoArray.splice(itemToDoPossition, 1);
   addtoDone();
 
   renderListToDo();
   renderToDone();
 };
+// ******************************************************************************
 
-// here I got the done body that will move the lists item on it.
+// addtoDone: a function to push items to ol inside "Done" section in page2.
+addtoDone = () => {
+  listDoneArray.push(doneItem);
+};
+// ******************************************************************************
+
+// renderToDone: a functtion to render useres clicks on items inside ToDo,
+// and put them inside "Done" in ol.
 const doneBody = $(`#doneBody`);
 doneBody.html(`<ol id="ol-list-done"></ol>`);
-let itemDone_Position = 0;
+let itemDonePossition = 0;
 renderToDone = () => {
-  let ol_Done = $(`#ol-list-done`);
-  ol_Done.html(``);
+  let olDone = $(`#ol-list-done`);
+  olDone.html(``);
 
-  console.log(`listDoneArray in renderToDone = ${listDoneArray}`);
+  
   for (let i = 0; i < listDoneArray.length; i++) {
-    li_done = $(`<div class="list-item-class"><li id="done-pushed${i}">${listDoneArray[i]}
+    liDone = $(`<div class="list-item-class"><li id="done-pushed${i}">${listDoneArray[i]}
        
        </li><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`);
-    ol_Done.append(li_done);
+    olDone.append(liDone);
 
     $(`#done-pushed${i}`).on("click", function () {
       itemIdtoDelete = $(`#done-pushed${i}`).attr(`id`);
-      itemDone_Position = i;
+      itemDonePossition = i;
       deleteFromDone();
     });
   }
 };
+// ********************************************************************************
+
+
 
 deleteFromDone = () => {
   
-    // console.log(item_position);
-    listArray.splice(item_position, 1);
+    listArray.splice(itemPossition, 1);
   
     localStorage.setItem("listDoneArray", JSON.stringify(listDoneArray));
   
     renderToDone();
 };
 
-// this section is for the step progress bar.
 
 
 
-const finishBtn = $(`#finishBtn`);
+
+
 
 
 
