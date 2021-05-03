@@ -87,23 +87,25 @@ li {
   color: #4f392b;
   font-size: 30px;
   font-family: cursive;
-  width: fit-content;
+  width: 300px;
+  width: max-content;
   height: fit-content;
   justify-content: space-evenly;
   flex: auto;
   font-size: larger;
-  text-align: center;
-  margin-right: 10px;
   border-bottom: 1px solid;
   list-style-position: inside;
 }
 
+.listvew{
+  width: 300px;
+}
 .list-item-class {
   display: flex;
-  width: fit-content;
+  width: max-content;
   height: 50px;
   flex-direction: row;
-  justify-content: space-between;
+  gap: 15px;
   align-items: center;
 }
 
@@ -119,10 +121,10 @@ li {
 }
 
 .list-view {
-  width: 100%;
+  width: 300px;
   height: 100%;
   box-sizing: border-box;
-  padding-left: 34px;
+ 
 }
 
 .list-fotter {
@@ -226,6 +228,11 @@ h1 {
   background-color: #e4dace;
   margin: 15px;
   border-radius: 13px;
+}
+
+.home-btn2{
+width: 100%;
+
 }
 
 .todo {
@@ -351,6 +358,7 @@ h1 {
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }

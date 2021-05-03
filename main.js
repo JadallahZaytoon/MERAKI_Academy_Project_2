@@ -101,8 +101,9 @@ function renderList() {
   console.log(listArray);
   for (i = 0; i < listArray.length; i++) {
     //I am willing to add delete button in here.
-    li = $(`<div class="list-item-class"><li id="list-item-pushed${i}">${listArray[i].list}   ${listArray[i].date} 
-   </li><input class="checkBox" type="checkbox" name=checkbox id="deleted${i}"></div>`); // Iam adding an checkBox to delete lists .
+    li = $(`<div class="list-item-class"><li id="#list-item-pushed${i}">${listArray[i].list} 
+   </li> <input class="checkBox" type="checkbox" name=checkbox id="${listArray[i].list}">${listArray[i].date}</div>`); 
+   // Iam adding an checkBox to delete lists .
     ol.append(li);
     $(`#list-item-pushed${i}`).on("click", function () {
       homePageHider();
@@ -113,30 +114,40 @@ function renderList() {
 
 //this function to get the selected checkBox id.
 let selected_Item_toDelete = "";
-let item_position = 100;
+let item_position = 0;
 const checkedBoxValue = () => {
   let checkedValue = $(`.checkBox`);
 
   for (let i = 0; i < checkedValue.length; i++) {
     let x = `${checkedValue[i].checked}`;
-
+    
     if (x === `true`) {
-      selected_Item_toDelete = $(`#deleted${i}`).attr(`id`);
-      item_position = i;
       
-      deleteItemsFromList(listArray);
+      
+      selected_Item_toDelete = checkedValue[i].id
+      console.log(selected_Item_toDelete);
+      listArray=listArray.filter(element=>{
+
+       return element.list!==selected_Item_toDelete;
+      })
+      
+      // item_position = i;
+      
+      // deleteItemsFromList(listArray);
     }
   }
-};
-
-const deleteItemsFromList = (listArray) => {
-  
-  listArray.splice(item_position, 1);
-
   localStorage.setItem("listArray", JSON.stringify(listArray));
-
   renderList();
 };
+
+// const deleteItemsFromList = (listArray) => {
+  
+//   listArray.splice(item_position, 1);
+
+//   localStorage.setItem("listArray", JSON.stringify(listArray));
+
+//   renderList();
+// };
 
 //this is when the user click on the delete button.
 deleteButton.on(`click`, function () {
