@@ -208,7 +208,7 @@ toDoBody.html(`<ol id="ol-list"></ol>`);
 let listToDoArray = JSON.parse(localStorage.getItem("listToDoArray")) || [];
 // decleration of the inputs from user.(page 2)
 let inputValueToDo = ``;
-let listDoneArray =JSON.parse(localStorage.getItem("listDoneArray")) || [];
+let listDoneArray = JSON.parse(localStorage.getItem("listDoneArray")) || [];
 //***************************************************************************** */
 
 // Button that set users input inside the ToDo list
@@ -239,7 +239,7 @@ renderListToDo();
 let movedItemIndex = [0];
 let itemId;
 let itemToDoPossition = 0;
-function renderListToDo (){
+function renderListToDo() {
   let ol = $(`#ol-list`);
   ol.html(``);
 
@@ -255,7 +255,7 @@ function renderListToDo (){
       deleteFromToDo();
     });
   }
-};
+}
 // ****************************************************************************
 
 // deleteFromToDo: a function to delete items from ToDO list inside page2.
