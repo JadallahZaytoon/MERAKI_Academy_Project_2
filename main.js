@@ -16,6 +16,7 @@ const deleteButton = $(`#deletBtn`);
 const addToDoBtn = $(`#btn-add-ToDo`);
 const homeBtn = $(`#home`);
 const home1Btn = $(`#home1`);
+const homebtn3 = $(`#home3`);
 buttons = () => {
   addBtn.html(`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="40" fill="green" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
 <path d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z"/>
@@ -40,6 +41,12 @@ buttons = () => {
 <path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
 <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
 </svg>`);
+
+homebtn3.html(`<svg xmlns="http://www.w3.org/2000/svg" width="36" height="40" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+<path fill-rule="evenodd" d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+<path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+</svg>`);
+
 };
 // *****************************************************************
 
@@ -61,6 +68,10 @@ addBtn.click(() => {
 homeBtn.click(() => {
   page2Hider();
 });
+homebtn3.click(()=>{
+  $(`#mainContainerDiv`).hide();
+  $(`#Container`).show();
+})
 // *****************************************************************
 
 // local storage to get array of lists.(page 1)
@@ -70,7 +81,9 @@ let listArray = JSON.parse(localStorage.getItem("listArray")) || [];
 let inputValue = ``;
 dateValue = ``;
 // *****************************************************************
-
+function change_placeholder_color(target_class, color_choice) {
+  $("#list-input").append("<style>" + target_class + "::placeholder{color:" +  color_choice + "}</style>")
+}
 // an event added when user clicks on save after filling list name and list date.
 const saveBtn = $(`#saveBtn`);
 $(`#saveBtn`).click(() => {
@@ -84,7 +97,10 @@ $(`#saveBtn`).click(() => {
     $(`#Container`).show();
     $(`#mainContainerDiv`).hide();
   } else {
-    alert(`Please Enter List first`); //this to alert user that he must enter a value (list name)
+    
+    change_placeholder_color('.menuInputs', 'red')
+    
+    // alert(`Please Enter List first`); //this to alert user that he must enter a value (list name)
   }
 });
 // ******************************************************************
