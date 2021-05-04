@@ -53,20 +53,19 @@
 
           <!-- Fotter of the ToDo section -->
           <div id="toDoFotter" class="toDoFotterc">
-         <div class="inputFotterDiv"><label>What do you need to do?</label><input
-                        type="text"
-                        id="toDo-input"
-                        placeholder="ToDo Here"
-                        class="toDoInput"
-                      /></div>
+            <div class="inputFotterDiv">
+              <label>What do you need to do?</label
+              ><input
+                type="text"
+                id="toDo-input"
+                placeholder="ToDo Here"
+                class="toDoInput"
+              />
+            </div>
 
-          <div><button id="btn-add-ToDo" class="btnTodo">Add</button>
-          </div>
-            
+            <div><button id="btn-add-ToDo" class="btnTodo">Add</button></div>
           </div>
         </div>
-
-        
 
         <div id="done" class="donec">
           <div id="toDoHeader" class="toDoHeaderc"><h1>Done</h1></div>
@@ -75,39 +74,31 @@
       </div>
     </div>
 
+    <!-- This section for the menu -->
 
-<!-- This section for the menu -->
-  
     <div id="mainContainerDiv" class="mainContainer">
-     
-      <div ><button id="home3" class="home-btn3"></button>
-      </div>
+      <div><button id="home3" class="home-btn3"></button></div>
 
+      <div class="containerStep">
+        <div><h1 class="menuHeader">Add a new list</h1></div>
 
-
-    <div class="containerStep">
-      
-     <div> <h1 class="menuHeader">Add a new list</h1></div>
-      
-
-          <div id="list-adder" class="inptToList" >
-           <label>Name your list here</label>
-           <input type="text" id="list-input" placeholder="Enter list name" class="menuInputs"  /> 
+        <div id="list-adder" class="inptToList">
+          <label>Name your list here</label>
+          <input
+            type="text"
+            id="list-input"
+            placeholder="Enter list name"
+            class="menuInputs"
+          />
           <label>Choose a Date</label>
-           <input type="date" id="dateInput" class="menuInputs"  />
-          </div>
-         
-          <div class="buttonsOfBar">
-          
-            <button id="saveBtn"  class="saveBtn" >save</button></div>
-         
-       
-      
-    </div>
-  
-    </div>
+          <input type="date" id="dateInput" class="menuInputs" />
+        </div>
 
-  
+        <div class="buttonsOfBar">
+          <button id="saveBtn" class="saveBtn">save</button>
+        </div>
+      </div>
+    </div>
 
     <script src="main.js"></script>
   </body>
