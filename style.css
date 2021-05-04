@@ -178,13 +178,12 @@ h2 {
   flex-direction: column;
   align-items: center;
   background-color: #f0dac3;
-  background-image: url(notepad-pen-write-plan.jpg);
+  background-image: url(old-Book.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 h1 {
-  
   vertical-align: middle;
   margin: auto;
   border-radius: 3px;
@@ -212,43 +211,34 @@ h1 {
   border-bottom: 1px solid;
 }
 
-.logoP2 {
-  width: 250px;
-  height: 100%;
-  box-sizing: border-box;
-  font-size: 25px;
-  color: #4f392b;
-  font-family: cursive;
-  background-color: #e4dace;
-  font-size: xx-large;
-  font-weight: bolder;
-  border-radius: 27px;
-  text-align: center;
-  text-align: center;
-  padding-top: 7px;
-}
 
 .home-btn {
-  width: 50px;
-  height: 60%;
+  width: 100px;
+  height: 60px;
+  font-family: cursive;
   box-sizing: border-box;
   font-size: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #e4dace;
   margin: 15px;
-  border-radius: 13px;
+  border-radius: 3px;
 }
+
+.home-btn {
+
+  background-color: unset;
+  color: rgb(77, 30, 30);
+
+}
+
 
 .home-btn2 {
   width: 100%;
 }
 
-.menuHeaderHome{
-  
-}
+
 .home-btn3{
   width: 100px;
   height: 60px;
